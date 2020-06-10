@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-daidoonboarding-dev-151042-authRole",
+            "UnauthRoleArn": "arn:aws:iam::166464238515:role/amplify-daidoonboarding-dev-151042-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::166464238515:role/amplify-daidoonboarding-dev-151042-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplify-daidoonboarding-dev-151042-deployment",
+            "UnauthRoleName": "amplify-daidoonboarding-dev-151042-unauthRole",
+            "StackName": "amplify-daidoonboarding-dev-151042",
+            "StackId": "arn:aws:cloudformation:eu-west-1:166464238515:stack/amplify-daidoonboarding-dev-151042/a07231a0-aa52-11ea-bbcd-02ccbabe1234",
+            "AmplifyAppId": "d3d1fon1cgy9nb"
+        },
+        "categories": {
+            "auth": {
+                "daidoonboardingd1a112c5": {}
+            }
+        }
+    }
+}
