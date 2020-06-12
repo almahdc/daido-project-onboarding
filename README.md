@@ -13,6 +13,6 @@ Front-end is done in React and the back-end is taken care for by AWS Amplify and
 
 Mockups for the app are shown [here](https://balsamiq.cloud/sfku9lp/p6mv5um)!
 More details about the app are shown [here](https://app.mural.co/t/daido2784/m/daido2784/1591538649608/c1a50661a6c4320e2fa7aabff973bd7d7b94ff7c)!
-Issues that need to be done (not only on the web app) will be shown [here](https://github.com/almahdc/daido-project-onboarding/issues)!
+Issues that need to be done (not only on the web app) will be shown [here](https://github.com/almahdc/daido-project-onboarding/projects/1)!
 
 Live link [here](https://master.d5bxwqht42psu.amplifyapp.com/)!
