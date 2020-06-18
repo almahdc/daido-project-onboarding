@@ -1,7 +1,5 @@
 import React from "react";
 
-// Router
-
 // Style
 import {Box, Toolbar, Drawer} from "@material-ui/core";
 import classes from "./AppMenu.module.scss";

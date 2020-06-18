@@ -11,11 +11,16 @@ import {Grid, Container} from "@material-ui/core";
 class Layout extends Component {
   render() {
     const {type, topLeft, topRight, bottom} = this.props;
+
     return (
       <Container maxWidth="lg">
         <Grid container direction="column">
           <Grid item>
-            <Menu isUserAuthenticated={this.props.isUserAuthenticated} />
+            <Menu
+              isUserAuthenticated={
+                this.props.userState ? this.props.userState.user : null
+              }
+            />
           </Grid>
           <Grid item container spacing={2}>
             {type === constants.LAYOUT_LEFT_RIGHT_NEW_WINDOW_PAGE_BOTTOM ? (

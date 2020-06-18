@@ -1,20 +1,18 @@
 import React from "react";
 
 // Style
-import classes from "./AppMenuItem.module.scss";
+import Button from "@material-ui/core/Button";
 
-//import {NavLink} from "react-router-dom";
-//import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const menuItem = props => {
   return (
-    <div
-      className={classes.MenuItem}
-      to={{pathname: props.path.pathName, hash: props.path.hash}}
-      onClick={props.clicked}
+    <Button
+      component={NavLink}
+      to={{pathname: props.path.pathName, to: props.path.hash}}
     >
       {props.menuItemTitle}
-    </div>
+    </Button>
   );
 };
 

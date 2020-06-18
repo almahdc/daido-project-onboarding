@@ -1,7 +1,7 @@
 const menuItems = [
   {
     name: "HOME",
-    path: {pathName: "/"},
+    path: {pathName: "/home"},
     isPublic: true,
     isPrivate: true
   },
@@ -9,12 +9,12 @@ const menuItems = [
     name: "LOGOUT",
     path: {pathName: "/logout"},
     isPublic: false,
-    isPrivate: false
+    isPrivate: true
   },
   {
     name: "LOGIN",
     path: {pathName: "/auth"},
-    isPublic: false,
+    isPublic: true,
     isPrivate: false
   }
 ];
