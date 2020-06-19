@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Authentication from "./containers/Auth";
 import Logout from "./containers/Auth/Logout";
 import Home from "./containers/Home";
+import WorkflowEditor from "./containers/Workflow/Editor";
 
 import {Auth} from "aws-amplify";
 
@@ -115,6 +116,9 @@ function App() {
             </Route>
             <Route path="/logout">
               <Logout />
+            </Route>
+            <Route path="/workfloweditor">
+              <WorkflowEditor />
             </Route>
           </Layout>
         </Switch>
