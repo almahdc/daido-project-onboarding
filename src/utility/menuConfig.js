@@ -16,6 +16,12 @@ const menuItems = [
     path: {pathName: "/auth"},
     isPublic: true,
     isPrivate: false
+  },
+  {
+    name: "WORKFLOW EDITOR",
+    path: {pathName: "/workfloweditor"},
+    isPublic: true,
+    isPrivate: true
   }
 ];
 

@@ -8,7 +8,10 @@ const theme = themeType => {
     palette: {
       type: themeType === DARK_THEME ? DARK_THEME : LIGHT_THEME,
       secondary: {
-        main: "#b19bf7"
+        main: "#ffffff"
+      },
+      sensitive: {
+        main: "#6d6d6d"
       }
     },
     typography: {

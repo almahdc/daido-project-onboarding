@@ -1,8 +1,19 @@
-import React from 'react'
-import { FlowChartWithState } from "@mrblenny/react-flow-chart";
+import React from "react";
+
+import {FlowChartWithState} from "@mrblenny/react-flow-chart";
+
+// style
+import {makeStyles} from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+
+const useStyles = makeStyles(() => ({
+  canvas: {
+    padding: "1em"
+  }
+}));
 
 const chartSimple = {
-	scale: 1,
+  scale: 1,
   offset: {
     x: 0,
     y: 0
@@ -49,7 +60,7 @@ const chartSimple = {
           type: "output"
         }
       }
-    },
+    }
   },
   links: {
     link1: {
@@ -61,15 +72,19 @@ const chartSimple = {
       to: {
         nodeId: "node2",
         portId: "port1"
-      },
-    },
+      }
+    }
   },
   selected: {},
   hovered: {}
 };
 
-const Editor = () => {
-  return <FlowChartWithState initialValue={chartSimple} />
-};
+export default function Canvas() {
+  const classes = useStyles();
 
-export default Editor;
+  return (
+    <Paper className={classes.canvas} color="secondary">
+      <FlowChartWithState initialValue={chartSimple} />
+    </Paper>
+  );
+}
