@@ -1,0 +1,15 @@
+{
+  "menu.item.home.text": "Home",
+  "menu.item.logout.text": "Logout",
+  "menu.item.login.text": "Login",
+  "menu.item.language.text": "Language",
+  "menu.item.language.english.text": "English",
+  "menu.item.language.mandarin.text": "Mandarin",
+
+  "landing.page.title.main.text" : "Onboard businesses to your platform faster then ever!",
+  "home.admin.general.text" : "Admin logged in",
+
+  "auth.sing.in.username.placeholder" : "Username",
+  "auth.sing.in.password.placeholder" : "Password",
+  "auth.sing.in.button" : "Sign in"
+}
