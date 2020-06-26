@@ -2,11 +2,13 @@ import React, {Component} from "react";
 
 import * as constants from "../../utility/uiConstants";
 
-// Components
+// components
 import Menu from "../../components/Navigation/AppMenu";
 
-// Style
+// style
 import {Grid, Container} from "@material-ui/core";
+
+// TODO: convert it to HOC for real
 
 class Layout extends Component {
   render() {
@@ -22,7 +24,7 @@ class Layout extends Component {
               }
             />
           </Grid>
-          <Grid item container spacing={2}>
+          <Grid item container>
             {type === constants.LAYOUT_LEFT_RIGHT_NEW_WINDOW_PAGE_BOTTOM ? (
               <>
                 <Grid item xs={0} sm={2} />

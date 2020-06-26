@@ -1,19 +1,23 @@
 import React from "react";
 
-// Style
+// style
 import {Box, Toolbar, Drawer} from "@material-ui/core";
 import classes from "./AppMenu.module.scss";
 
-// Components
-import MenuItem from "./AppMenuItem";
+// components
+import AppMenuItem from "./AppMenuItem";
 import MenuToggle from "./MenuToggle";
 
-// Data
+// data
 import menuItemsData from "../../../utility/menuConfig";
 
-export default function Menu(props) {
-  const [drawer, setDrawer] = React.useState(false);
+// TODO: set the mobile version
+// TODO: get rid of modules (use only material-ui and recommended way of using it)
 
+// component
+export default function AppMenu(props) {
+  // code for mobile version menu
+  const [drawer, setDrawer] = React.useState(false);
   const toggleDrawer = open => event => {
     if (
       event.type === "keydown" &&
@@ -21,10 +25,10 @@ export default function Menu(props) {
     ) {
       return;
     }
-
     setDrawer(open);
   };
 
+  // filtering which menu items to show depending on is user logged in or not
   const menuItems = menuItemsData
     .filter(menuItemData => {
       return props.isUserAuthenticated
@@ -32,11 +36,12 @@ export default function Menu(props) {
         : menuItemData.isPublic;
     })
     .map(menuItem => (
-      <MenuItem
-        key={menuItem.name}
+      <AppMenuItem
+        key={`${menuItem.name}${menuItem.type}`}
+        menuItemType={menuItem.type}
+        menuItemIdentity={menuItem.identity}
         menuItemTitle={menuItem.name}
         path={menuItem.path}
-        clicked={toggleDrawer(false)}
       />
     ));
 
