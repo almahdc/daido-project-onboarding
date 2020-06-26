@@ -1,17 +1,23 @@
-var UserData = (function() {
-  var getUser = function() {
+// TODO: is this best practice?
+
+import {UserTypes} from "./constants";
+
+let UserData = (function() {
+  let getUser = function() {
     return localStorage.getItem("userType");
   };
 
   // alma180720: remove hc code
-  var setUser = function(user) {
+  let setUser = function(user) {
     localStorage.setItem(
       "userType",
-      user === "almahdc+admin@gmail.com" ? "ADMIN" : "MANUF"
+      user === "almahdc+admin@gmail.com"
+        ? UserTypes.ADMIN
+        : UserTypes.MANUFACTURER
     );
   };
 
-  var removeUserData = function() {
+  let removeUserData = function() {
     localStorage.removeItem("userType");
   };
 

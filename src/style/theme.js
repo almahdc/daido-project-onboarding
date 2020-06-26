@@ -7,33 +7,39 @@ const theme = themeType => {
   return createMuiTheme({
     palette: {
       type: themeType === DARK_THEME ? DARK_THEME : LIGHT_THEME,
-      secondary: {
-        main: "#ffffff"
+      primary: {
+        main: "#0B43A4",
+        contrastText: "#fff"
       },
-      sensitive: {
-        main: "#6d6d6d"
+      text: {
+        primary: "#fff",
+        secondary: "#0B43A4"
+      },
+      secondary: {
+        main: "#7FECAF",
+        contrastText: "#000"
       }
     },
     typography: {
       h1: {
-        fontFamily: ["Noto Sans"]
+        fontFamily: ["Nunito"]
       },
       h2: {
-        fontFamily: ["Noto Sans"]
+        fontFamily: ["Nunito"]
       },
       h3: {
-        fontFamily: ["Noto Sans"]
+        fontFamily: ["Nunito"]
       },
       h4: {
-        fontFamily: ["Noto Sans"]
+        fontFamily: ["Nunito"]
       },
       h5: {
-        fontFamily: ["Noto Sans"]
+        fontFamily: ["Nunito"]
       },
       h6: {
-        fontFamily: ["Noto Sans"]
+        fontFamily: ["Nunito"]
       },
-      fontFamily: ["Open Sans"]
+      fontFamily: ["Nunito"]
     }
   });
 };
