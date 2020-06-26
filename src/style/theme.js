@@ -8,22 +8,16 @@ const theme = themeType => {
     palette: {
       type: themeType === DARK_THEME ? DARK_THEME : LIGHT_THEME,
       primary: {
-        main: "#0B43A4"
+        main: "#0B43A4",
+        contrastText: "#fff"
       },
-      primaryLighter: {
-        main: "#95B5DB"
-      },
-      black: {
-        main: "#000000"
-      },
-      white: {
-        main: "#ffffff"
+      text: {
+        primary: "#fff",
+        secondary: "#0B43A4"
       },
       secondary: {
-        main: "#7FECAF"
-      },
-      outOfFocus: {
-        main: "#888888"
+        main: "#7FECAF",
+        contrastText: "#000"
       }
     },
     typography: {

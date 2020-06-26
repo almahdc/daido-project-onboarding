@@ -1,8 +1,10 @@
 import React from "react";
 
 // style
-import {Box, Toolbar, Drawer} from "@material-ui/core";
-import classes from "./AppMenu.module.scss";
+import {Box, Toolbar, Drawer, Button} from "@material-ui/core";
+import {makeStyles} from "@material-ui/core/styles";
+import Logo from "../../../assets/images/logo.png";
+import Logo2 from "../../../assets/images/logo2.png";
 
 // components
 import AppMenuItem from "./AppMenuItem";
@@ -13,10 +15,22 @@ import menuItemsData from "../../../utility/menuConfig";
 
 // TODO: set the mobile version
 // TODO: get rid of modules (use only material-ui and recommended way of using it)
+// TODO: Button Logo leads to home
+// TODO: imgs have to be responsive, everything has to be responsive!!
+
+const useStyles = makeStyles({
+  flexGrow: {
+    flexGrow: "1"
+  },
+  imageLogo: {
+    maxWidth: "10em"
+  }
+});
 
 // component
 export default function AppMenu(props) {
   // code for mobile version menu
+  const classes = useStyles();
   const [drawer, setDrawer] = React.useState(false);
   const toggleDrawer = open => event => {
     if (
@@ -42,12 +56,22 @@ export default function AppMenu(props) {
         menuItemIdentity={menuItem.identity}
         menuItemTitle={menuItem.name}
         path={menuItem.path}
+        type={props.type}
       />
     ));
 
   return (
     <Box display="flex" flexDirection="row-reverse" marginBottom="40px">
-      <Toolbar>
+      <Toolbar className={classes.flexGrow}>
+        <div className={classes.flexGrow}>
+          <Button edge="start" color="inherit" aria-label="menu">
+            <img
+              src={props.type ? Logo : Logo2}
+              className={classes.imageLogo}
+              alt="logo"
+            />
+          </Button>
+        </div>
         <MenuToggle clicked={toggleDrawer(true)} />
         <div className={classes.Menu}>{menuItems}</div>
       </Toolbar>
