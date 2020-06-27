@@ -118,6 +118,9 @@ function App() {
       <Route path="/:lang/logout">
         <Logout />
       </Route>
+      <Route path="/:lang/workfloweditor">
+        <WorkflowEditor />
+      </Route>
       <Route exact path="/" component={Home} />
     </>
   );

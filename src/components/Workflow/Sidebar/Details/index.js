@@ -2,10 +2,9 @@ import React from "react";
 
 // style
 import {makeStyles} from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 
 // components
-import SidebarItem from "./SidebarItem";
+import SidebarItem from "../SidebarItem";
 
 const useStyles = makeStyles(() => ({
   sidebar: {
@@ -13,7 +12,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-export default function Sidebar() {
+export default function SidebarDetails() {
   const classes = useStyles();
   return (
     <div className={classes.sidebar}>

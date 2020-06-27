@@ -29,7 +29,7 @@ const ChangeLanguage = ({type}) => {
   const classes = useStyles();
 
   const history = useHistory();
-  const {i18n} = useTranslation();
+  const {i18n, t} = useTranslation();
   const [dropdownLang, setDropdownLang] = useState(i18n.language || "en");
 
   const languageHandler = event => {
@@ -65,10 +65,10 @@ const ChangeLanguage = ({type}) => {
         }}
       >
         <MenuItem value="en" className={classes.itemDark}>
-          EN
+          {t("menu.item.change.language.en.option")}
         </MenuItem>
         <MenuItem value="zh" className={classes.itemDark}>
-          ZH
+          {t("menu.item.change.language.zh.option")}
         </MenuItem>
       </Select>
     </FormControl>

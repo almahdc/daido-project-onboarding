@@ -1,6 +1,9 @@
 import React from "react";
 
-// Style
+// style
+
+// TODO: remove scss, move css to material-ui
+
 import classes from "./MenuToggle.module.scss";
 
 const drawerToggle = props => (
