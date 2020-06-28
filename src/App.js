@@ -121,7 +121,7 @@ function App() {
       <Route path="/:lang/workfloweditor">
         <WorkflowEditor />
       </Route>
-      <Route exact path="/" component={Home} />
+      <Redirect to={`/${i18n.language}/home`} />
     </>
   );
 
@@ -134,10 +134,7 @@ function App() {
           themeType={themeType}
           onClickHandler={onClickHandler}
         >
-          <Switch>
-            <Redirect strict exact from="/" to={`/${i18n.language}/home`} />
-            {routes}
-          </Switch>
+          <Switch>{routes}</Switch>
         </Layout>
       </Router>
     </ThemeProvider>
