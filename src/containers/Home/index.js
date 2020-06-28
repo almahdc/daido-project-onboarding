@@ -1,5 +1,8 @@
 import React from "react";
 
+// components
+import {NavLink} from "react-router-dom";
+
 // style
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -18,7 +21,6 @@ const useStyles = makeStyles({
   container: {
     padding: "0 3em"
   },
-
   imageContainer: {
     overflow: "hidden"
   },
@@ -35,7 +37,7 @@ const useStyles = makeStyles({
 
 // component
 export default function Home(props) {
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
   const classes = useStyles();
 
   const generalLandingPage = (
@@ -50,6 +52,8 @@ export default function Home(props) {
           variant="contained"
           color="secondary"
           className={classes.button}
+          component={NavLink}
+          to={`/${i18n.language}/workfloweditor`}
         >
           {t("landing.page.get.started.button")}
         </Button>

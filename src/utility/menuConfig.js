@@ -28,6 +28,12 @@ const menuItems = [
     isPrivate: false
   },
   {
+    name: "WORKFLOW EDITOR",
+    path: {pathName: "/workfloweditor"},
+    isPublic: true,
+    isPrivate: true
+  },
+  {
     type: MenuItemTypes.SELECT,
     identity: MenuItemIdentities.CHANGE_LANGUAGE,
     path: null,

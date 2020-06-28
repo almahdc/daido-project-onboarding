@@ -3,8 +3,8 @@ import {useHistory} from "react-router-dom";
 
 import * as constants from "../../utility/uiConstants";
 
-// components
-import Menu from "../../components/Navigation/AppMenu";
+// containers
+import Menu from "../../containers/Navigation/AppMenu";
 
 // style
 import {Grid, Container} from "@material-ui/core";
@@ -28,13 +28,24 @@ function Layout(props) {
   const [layoutType, setLayoutType] = useState(
     window.location.pathname.includes("home") ? true : false
   );
+  console.log("layoutType", layoutType, window.location.pathname);
   const {type, topLeft, topRight, bottom} = props;
 
   useEffect(() => {
     history.listen((location, action) => {
-      setLayoutType(location.pathname.includes("home") ? true : false);
+      console.log("location.pathname", location.pathname);
+      setLayoutType(
+        location.pathname.includes("home") ||
+          window.location.pathname.includes("home")
+          ? true
+          : false
+      );
     });
   }, [history]);
+
+  useEffect(() => {
+    setLayoutType(window.location.pathname.includes("home") ? true : false);
+  }, []);
 
   const classes = useStyles(layoutType);
   return (

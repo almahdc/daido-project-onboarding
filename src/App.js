@@ -10,6 +10,7 @@ import {
 import Authentication from "./containers/Auth";
 import Logout from "./containers/Auth/Logout";
 import Home from "./containers/Home";
+import WorkflowEditor from "./containers/Workflow/Editor";
 
 // aws
 import {Auth} from "aws-amplify";
@@ -116,6 +117,9 @@ function App() {
       </Route>
       <Route path="/:lang/logout">
         <Logout />
+      </Route>
+      <Route path="/:lang/workfloweditor">
+        <WorkflowEditor />
       </Route>
       <Route exact path="/" component={Home} />
     </>

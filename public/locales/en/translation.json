@@ -5,6 +5,8 @@
   "menu.item.language.text": "Language",
   "menu.item.language.english.text": "English",
   "menu.item.language.mandarin.text": "Mandarin",
+  "menu.item.change.language.zh.option": "你",
+  "menu.item.change.language.en.option": "EN",
 
   "landing.page.title.main.text" : "Collect data from a supply chain. <br /> Easy. Effective. <br /> Multi-language.",
   "home.admin.general.text" : "Admin logged in",

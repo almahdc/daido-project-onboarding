@@ -7,9 +7,12 @@ import Logo from "../../../assets/images/logo.png";
 import Logo2 from "../../../assets/images/logo2.png";
 
 // components
-import AppMenuItem from "./AppMenuItem";
-import MenuToggle from "./MenuToggle";
+import AppMenuItem from "../../../components/Navigation/AppMenu/AppMenuItem";
+import MenuToggle from "../../../components/Navigation/AppMenu/MenuToggle";
+import {NavLink} from "react-router-dom";
 
+//
+import {useTranslation} from "react-i18next";
 // data
 import menuItemsData from "../../../utility/menuConfig";
 
@@ -23,13 +26,14 @@ const useStyles = makeStyles({
     flexGrow: "1"
   },
   imageLogo: {
-    maxWidth: "10em"
+    maxWidth: "8em"
   }
 });
 
 // component
 export default function AppMenu(props) {
   // code for mobile version menu
+  const {i18n} = useTranslation();
   const classes = useStyles();
   const [drawer, setDrawer] = React.useState(false);
   const toggleDrawer = open => event => {
@@ -64,7 +68,13 @@ export default function AppMenu(props) {
     <Box display="flex" flexDirection="row-reverse" marginBottom="40px">
       <Toolbar className={classes.flexGrow}>
         <div className={classes.flexGrow}>
-          <Button edge="start" color="inherit" aria-label="menu">
+          <Button
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            component={NavLink}
+            to={`/${i18n.language}/home`}
+          >
             <img
               src={props.type ? Logo : Logo2}
               className={classes.imageLogo}

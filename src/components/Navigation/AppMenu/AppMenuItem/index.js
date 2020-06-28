@@ -6,7 +6,9 @@ import {makeStyles} from "@material-ui/core/styles";
 
 // components
 import {NavLink} from "react-router-dom";
-import ChangeLanguage from "./ChangeLanguage";
+
+// containers
+import ChangeLanguage from "../../../../containers/Navigation/AppMenu/ChangeLanguage";
 
 // utility
 import {MenuItemIdentities, MenuItemTypes} from "../../../../utility/constants";
