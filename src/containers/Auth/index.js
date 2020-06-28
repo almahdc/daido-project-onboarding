@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
   formItems: {
     width: "100%",
     marginTop: "1.5em"
+  },
+  grid: {
+    margin: "auto"
   }
 }));
 

@@ -11,15 +11,21 @@ import {replaceString} from "../../../../utility/stringHelper";
 // TODO: detect from browser
 // TODO: do the routing more stable
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   select: {
     margin: "0.25rem",
     fontSize: "0.875rem",
     textTransform: "uppercase"
+  },
+  itemLight: {
+    color: "#ffffff"
+  },
+  itemDark: {
+    color: "#000000"
   }
 }));
 
-const ChangeLanguage = () => {
+const ChangeLanguage = ({type}) => {
   const classes = useStyles();
 
   const history = useHistory();
@@ -51,10 +57,19 @@ const ChangeLanguage = () => {
         value={dropdownLang}
         onChange={languageHandler}
         disableUnderline={true}
-        className={classes.select}
+        className={`${classes.select} ${
+          type ? classes.itemLight : classes.itemDark
+        }`}
+        classes={{
+          icon: type ? classes.itemLight : classes.itemDark
+        }}
       >
-        <MenuItem value="en">EN</MenuItem>
-        <MenuItem value="zh">ZH</MenuItem>
+        <MenuItem value="en" className={classes.itemDark}>
+          EN
+        </MenuItem>
+        <MenuItem value="zh" className={classes.itemDark}>
+          ZH
+        </MenuItem>
       </Select>
     </FormControl>
   );

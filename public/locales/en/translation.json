@@ -6,8 +6,9 @@
   "menu.item.language.english.text": "English",
   "menu.item.language.mandarin.text": "Mandarin",
 
-  "landing.page.title.main.text" : "Onboard businesses to your platform faster then ever!",
+  "landing.page.title.main.text" : "Collect data from a supply chain. <br /> Easy. Effective. <br /> Multi-language.",
   "home.admin.general.text" : "Admin logged in",
+  "landing.page.get.started.button" : "Try out our focus feature",
 
   "auth.sing.in.username.placeholder" : "Username",
   "auth.sing.in.password.placeholder" : "Password",
