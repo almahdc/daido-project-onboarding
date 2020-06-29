@@ -18,7 +18,8 @@ const useStyles = makeStyles({
   container: {
     backgroundRepeat: "no-repeat",
     backgroundImage: layoutType => (layoutType ? `url(${Background})` : ""),
-    backgroundSize: "cover"
+    backgroundSize: "contain",
+    background: "white"
   },
   content: {
     minHeight: "calc(100vh - 106px - 28px)"

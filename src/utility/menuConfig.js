@@ -14,14 +14,12 @@ const menuItems = [
     isPrivate: true
   },
   {
-    type: MenuItemTypes.TYPICAL,
     name: "menu.item.logout.text",
     path: {pathName: "/logout"},
     isPublic: false,
     isPrivate: true
   },
   {
-    type: MenuItemTypes.TYPICAL,
     name: "menu.item.login.text",
     path: {pathName: "/auth"},
     isPublic: true,
