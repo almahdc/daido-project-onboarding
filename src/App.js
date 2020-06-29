@@ -23,6 +23,7 @@ import Layout from "./hoc/Layout";
 import theme from "./style/theme";
 import {ThemeProvider} from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Container from "@material-ui/core/Container";
 
 // Utility
 import {DARK_THEME, LIGHT_THEME, NO_THEME} from "./utility/uiConstants";
@@ -134,7 +135,9 @@ function App() {
           themeType={themeType}
           onClickHandler={onClickHandler}
         >
-          <Switch>{routes}</Switch>
+          <Container maxWidth="lg">
+            <Switch>{routes}</Switch>
+          </Container>
         </Layout>
       </Router>
     </ThemeProvider>

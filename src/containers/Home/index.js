@@ -25,13 +25,13 @@ const useStyles = makeStyles({
     overflow: "hidden"
   },
   image: {
-    height: "40em"
+    height: "45em"
   },
   item: {
     height: "10em"
   },
   button: {
-    marginTop: "5em"
+    margin: "0 0 5em 0"
   }
 });
 
@@ -42,24 +42,26 @@ export default function Home(props) {
 
   const generalLandingPage = (
     <Grid container spacing={5} className={classes.container}>
-      <Grid item md={6}>
-        <Typography variant="h4" color="textPrimary">
+      <Grid item>
+        <Typography variant="h3" color="textPrimary">
           <Trans i18nKey="landing.page.title.main.text">
             Some newlines <br /> would be <br /> fine
           </Trans>
         </Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.button}
-          component={NavLink}
-          to={`/${i18n.language}/workfloweditor`}
-        >
-          {t("landing.page.get.started.button")}
-        </Button>
       </Grid>
-      <Grid item container md={6}>
-        <Grid item xs={12} className={classes.item} />
+      <Grid item container>
+        <Grid item md={6}>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+            component={NavLink}
+            to={`/${i18n.language}/workfloweditor`}
+          >
+            {t("landing.page.get.started.button")}
+          </Button>
+        </Grid>
+
         <Grid item className={classes.imageContainer}>
           <img
             src={Screenshot}

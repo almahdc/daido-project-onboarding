@@ -16,7 +16,8 @@ const useStyles = makeStyles({
   container: {
     backgroundRepeat: "no-repeat",
     height: "100vh",
-    backgroundImage: layoutType => (layoutType ? `url(${Background})` : "")
+    backgroundImage: layoutType => (layoutType ? `url(${Background})` : ""),
+    backgroundSize: "cover"
   }
 });
 
@@ -49,13 +50,17 @@ function Layout(props) {
 
   const classes = useStyles(layoutType);
   return (
-    <Container maxWidth="lg" className={classes.container}>
+    <div className={classes.container}>
       <Grid container direction="column">
         <Grid item>
-          <Menu
-            isUserAuthenticated={props.userState ? props.userState.user : null}
-            type={layoutType}
-          />
+          <Container maxWidth="lg">
+            <Menu
+              isUserAuthenticated={
+                props.userState ? props.userState.user : null
+              }
+              type={layoutType}
+            />
+          </Container>
         </Grid>
         <Grid item container>
           {type === constants.LAYOUT_LEFT_RIGHT_NEW_WINDOW_PAGE_BOTTOM ? (
@@ -75,7 +80,7 @@ function Layout(props) {
           )}
         </Grid>
       </Grid>
-    </Container>
+    </div>
   );
 }
 
