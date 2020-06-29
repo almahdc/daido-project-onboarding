@@ -2,6 +2,11 @@ import React from "react";
 
 // components
 import {NavLink} from "react-router-dom";
+import AboutUs from "../../components/Home/AboutUs";
+import MultiStep from "../../components/Home/MultiStep";
+import Features from "../../components/Home/Features";
+import OurPartners from "../../components/Home/OurPartners";
+import TeamLeadership from "../../components/Home/TeamLeadership";
 
 // style
 import Typography from "@material-ui/core/Typography";
@@ -10,9 +15,9 @@ import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/core/styles";
 import Screenshot from "../../assets/images/screenDashboardMock.png";
 
-// utility
-import UserData from "../../utility/userData";
-import {UserTypes} from "../../utility/constants";
+// // utility
+// import UserData from "../../utility/userData";
+// import {UserTypes} from "../../utility/constants";
 
 // translation
 import {useTranslation, Trans} from "react-i18next";
@@ -73,15 +78,14 @@ export default function Home(props) {
     </Grid>
   );
 
-  const adminHome = t("home.admin.general.text");
-
   return (
     <>
-      {UserData.getUser() === UserTypes.ADMIN
-        ? adminHome
-        : UserData.getUser() === UserTypes.MANUFACTURER
-        ? null
-        : generalLandingPage}
+      {generalLandingPage}
+      <MultiStep />
+      <Features />
+      <AboutUs />
+      <TeamLeadership />
+      <OurPartners />
     </>
   );
 }

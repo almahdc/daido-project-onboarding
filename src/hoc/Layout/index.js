@@ -3,6 +3,8 @@ import {useHistory} from "react-router-dom";
 
 import * as constants from "../../utility/uiConstants";
 
+// components
+import Footer from "../../components/Navigation/Footer";
 // containers
 import Menu from "../../containers/Navigation/AppMenu";
 
@@ -15,12 +17,22 @@ import Background from "../../assets/images/background.png";
 const useStyles = makeStyles({
   container: {
     backgroundRepeat: "no-repeat",
-    height: "100vh",
     backgroundImage: layoutType => (layoutType ? `url(${Background})` : ""),
-    backgroundSize: "cover"
+    backgroundSize: "contain",
+    background: "white"
+  },
+  content: {
+    minHeight: "calc(100vh - 106px - 28px)"
+  },
+  header: {
+    height: "106px"
+  },
+  footer: {
+    height: "28px"
   }
 });
 
+// TODO: is it smart to have menu height fixed?
 // TODO: convert it to HOC for real
 // TODO: It must be a better way to do change of theme - DO IT
 
@@ -52,7 +64,7 @@ function Layout(props) {
   return (
     <div className={classes.container}>
       <Grid container direction="column">
-        <Grid item>
+        <Grid item className={classes.header}>
           <Container maxWidth="lg">
             <Menu
               isUserAuthenticated={
@@ -62,7 +74,7 @@ function Layout(props) {
             />
           </Container>
         </Grid>
-        <Grid item container>
+        <Grid item container className={classes.content}>
           {type === constants.LAYOUT_LEFT_RIGHT_NEW_WINDOW_PAGE_BOTTOM ? (
             <>
               <Grid item xs={0} sm={2} />
@@ -78,6 +90,9 @@ function Layout(props) {
           ) : (
             props.children
           )}
+        </Grid>
+        <Grid item className={classes.footer}>
+          <Footer />
         </Grid>
       </Grid>
     </div>
