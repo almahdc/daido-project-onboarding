@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
   sidebar: {
     padding: "1em",
     backgroundColor: "#7FECAF",
-    minHeight: "75vh"
+    height: "75vh"
   },
   title: {
     textAlign: "center"
@@ -20,15 +20,14 @@ const useStyles = makeStyles(() => ({
 }));
 
 const inputItems = [
-  {name: "Machine Node I"},
-  {name: "Transportation node I"}
+  {name: "Material node"}
 ];
 const inputOutputItems = [
-  {name: "Machine Node IO"},
-  {name: "Chemical process node IO"}
+  {name: "Machine Node"},
+  {name: "Chemical process node"}
 ];
 const outputItems = [
-  {name: "Transportation node O"}
+  {name: "Transportation node"}
 ];
 
 export default function SidebarToolbox({handleDragItem}) {

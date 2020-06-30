@@ -2,7 +2,8 @@ import React from "react";
 
 // components
 import WorkflowCanvas from "../../../components/Workflow/Canvas/index";
-import WorkflowSidebarToolbox from "../../../components/Workflow/Sidebar/Toolbox";
+import SidebarToolbox from "../../../components/Workflow/Sidebar/Toolbox";
+import SidebarDetails from "../../../components/Workflow/Sidebar/Details";
 import NodeDialog from "../../../components/Workflow/NodeDialog";
 
 // style
@@ -25,7 +26,9 @@ const useStyles = makeStyles(() => ({
 
 const Editor = () => {
   const classes = useStyles();
+
   const [open, setOpen] = React.useState(false);
+  const [detailsView, setDetailsView] = React.useState(false);
   const [data, setData] = React.useState(null)
   const [name, setName] = React.useState("");
   const [description, setDescription] = React.useState("");
@@ -43,9 +46,21 @@ const Editor = () => {
     }
   };
 
+  const openDetails = () => {
+    console.log("openDetails", data, name, description)
+    if (data !== null) {
+      setName(data?.name)
+      setDescription(data?.description)
+      setDetailsView(!detailsView);
+    }
+  };
+
+  const closeDetails = () => {
+    setDetailsView(false);
+  }
+
   const openDialog = () => {
-    console.log("openDialog", data)
-    console.log("dialogData", name, description)
+    console.log("openDialog", data, name, description)
     if (data !== null) {
       setName(data?.name)
       setDescription(data?.description)
@@ -67,23 +82,31 @@ const Editor = () => {
     setDescription("")
   };
 
+  const renderSidebar = () => {
+    if(detailsView) {
+      return <SidebarDetails handleDragItem={handleDragItem} />;
+    } else {
+      return <SidebarToolbox  handleDragItem={handleDragItem} />;
+    }
+  }
+
   return (
     <>
       <Typography className={classes.text} variant="h4" color="primary">
         Name of the process flow
       </Typography>
-      <Typography className={classes.text} variant="h5" color="primary">
+      {/* <Typography className={classes.text} variant="h5" color="primary">
         Description
-      </Typography>
-      <Button variant="outlined" color="primary" onClick={openDialog}>
-        Open simple dialog
+      </Typography> */}
+      <Button variant="outlined" color="primary" onClick={openDetails}>
+        Open Details
       </Button>
       <Grid container spacing={5} className={classes.container}>
         <Grid item md={8}>
           <WorkflowCanvas mode={"edit"} />
         </Grid>
         <Grid item md={4}>
-          <WorkflowSidebarToolbox handleDragItem={handleDragItem} />
+          {renderSidebar()}
         </Grid>
       </Grid>
       <NodeDialog type={data?.type} name={name} setName={setName} description={description} setDescription={setDescription} open={open} onClose={closeDialog}></NodeDialog>
