@@ -1,43 +1,40 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateManufacturer = /* GraphQL */ `
-  subscription OnCreateManufacturer {
-    onCreateManufacturer {
+export const onCreateSurvey = /* GraphQL */ `
+  subscription OnCreateSurvey {
+    onCreateSurvey {
       id
-      name
-      description
-      _version
-      _deleted
-      _lastChangedAt
+      title
+      content
+      price
+      rating
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateManufacturer = /* GraphQL */ `
-  subscription OnUpdateManufacturer {
-    onUpdateManufacturer {
+export const onUpdateSurvey = /* GraphQL */ `
+  subscription OnUpdateSurvey {
+    onUpdateSurvey {
       id
-      name
-      description
-      _version
-      _deleted
-      _lastChangedAt
+      title
+      content
+      price
+      rating
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteManufacturer = /* GraphQL */ `
-  subscription OnDeleteManufacturer {
-    onDeleteManufacturer {
+export const onDeleteSurvey = /* GraphQL */ `
+  subscription OnDeleteSurvey {
+    onDeleteSurvey {
       id
-      name
-      description
-      _version
-      _deleted
-      _lastChangedAt
+      title
+      content
+      price
+      rating
       createdAt
       updatedAt
     }
