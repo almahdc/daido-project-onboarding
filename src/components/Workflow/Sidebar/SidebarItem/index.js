@@ -9,6 +9,9 @@ const useStyles = makeStyles(() => ({
   style: {
     padding: "1em",
     margin: "1em"
+  },
+  title: {
+    textAlign: "center"
   }
 }));
 
@@ -21,7 +24,7 @@ export default function SideBarItem({type, onDragItem}) {
       color="primary"
       onDragStart={onDragItem}
     >
-      <Typography variant="button" display="block" gutterBottom color="primary">
+      <Typography className={classes.title} variant="button" display="block" gutterBottom color="primary">
         {type}
       </Typography>
     </Paper>

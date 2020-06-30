@@ -8,7 +8,7 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles(() => ({
   canvas: {
-    maxHeight: "80vh",
+    maxHeight: "75vh",
     overflow: "hidden",
     padding: "0.5em"
   }
