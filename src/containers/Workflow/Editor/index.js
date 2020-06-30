@@ -9,6 +9,9 @@ import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import {Typography} from "@material-ui/core";
 
+// utility
+import {getNodeData} from "../../../utility/flowchart/nodeData";
+
 const useStyles = makeStyles(() => ({
   container: {
     padding: "20px 3em",
@@ -22,27 +25,10 @@ const useStyles = makeStyles(() => ({
 const Editor = () => {
   const classes = useStyles();
 
-  const handleDragItem = e => {
-    const data = getChartData();
+  const handleDragItem = (e, type) => {
+    const data = getNodeData(type);
     console.log("data is being dragged", e);
     e.dataTransfer.setData("react-flow-chart", JSON.stringify(data));
-  };
-
-  const getChartData = () => {
-    return {
-      type: "input-output",
-      ports: {
-        port1: {
-          id: "port1",
-          type: "left"
-        },
-        port2: {
-          id: "port2",
-          type: "right"
-        }
-      },
-      properties: {}
-    };
   };
 
   return (
