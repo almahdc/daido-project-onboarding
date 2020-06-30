@@ -5,6 +5,7 @@ import {makeStyles} from "@material-ui/core/styles";
 
 // components
 import {Typography, Dialog, DialogContent, TextField, DialogActions, Button} from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(() => ({
     dialog: {
@@ -32,14 +33,15 @@ const useStyles = makeStyles(() => ({
 
 export default function NodeDialog({type, name, setName, description, setDescription, open, onClose}) {
     const classes = useStyles();
+    const {t} = useTranslation();
 
     const getTitle = () => {
         if(type === "input-only") {
-            return "INPUT";
+            return t("workflow.page.editor.process.type.input");
         } else if (type === "input-output") {
-            return "PROCESS";
+            return t("workflow.page.editor.process.type.process");
         } else {
-            return "OUTPUT";
+            return t("workflow.page.editor.process.type.output");
         }
     }
 
@@ -62,10 +64,10 @@ export default function NodeDialog({type, name, setName, description, setDescrip
             </DialogContent>
             <DialogActions>
                 <Button onClick={onCancel} color="primary">
-                    CANCEL
+                    {t("workflow.page.editor.dialog.cancel")}
                 </Button>
                 <Button onClick={onSave} color="primary">
-                    SAVE
+                    {t("workflow.page.editor.dialog.save")}
                 </Button> 
             </DialogActions>
         </Dialog>

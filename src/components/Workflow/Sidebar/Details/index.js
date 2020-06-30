@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 
 // components
 import {Typography, Button, Grid} from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(() => ({
   sidebar: {
@@ -51,35 +52,36 @@ const useStyles = makeStyles(() => ({
 
 export default function SidebarDetails({openDialog, closeDetails, type, name, description}) {
   const classes = useStyles();
+  const {t} = useTranslation();
 
   const getTitle = () => {
     if(type === "input-only") {
-        return "INPUT";
+        return t("workflow.page.editor.process.type.input");
     } else if (type === "input-output") {
-        return "PROCESS";
+        return t("workflow.page.editor.process.type.process");
     } else {
-        return "OUTPUT";
+        return t("workflow.page.editor.process.type.output");
     }
 }
 
   return (
     <Paper className={classes.sidebar} color="secondary">
       <Typography className={classes.title} variant="h5" color="primary">
-        DETAILS
+        {t("workflow.page.editor.details.title")}
       </Typography>
       <Typography className={classes.label} variant="body2" color="primary">
-        TYPE:
+        {t("workflow.page.editor.details.type")}
       </Typography>
       <Typography className={classes.value} variant="body1" color="primary">
         {getTitle()}
       </Typography><Typography className={classes.label} variant="body2" color="primary">
-        NAME:
+        {t("workflow.page.editor.details.name")}
       </Typography>
       <Typography className={classes.value} variant="body1" color="primary">
         {name}
       </Typography>
       <Typography className={classes.label} variant="body2" color="primary">
-        DESCRIPTION:
+        {t("workflow.page.editor.details.description")}
       </Typography>
       <Typography className={classes.value} variant="body1" color="primary" paragraph>
         {description}
@@ -88,12 +90,12 @@ export default function SidebarDetails({openDialog, closeDetails, type, name, de
       <Grid container spacing={1} className={classes.container}>
         <Grid item md={6}>
           <Button className={classes.cancelButton} variant="outlined" color="primary" onClick={closeDetails}>
-            CANCEL
+            {t("workflow.page.editor.details.cancel")}
           </Button>
         </Grid>
         <Grid item md={6}>
           <Button className={classes.editButton} variant="outlined" color="primary" onClick={openDialog}>
-            EDIT
+            {t("workflow.page.editor.details.edit")}
           </Button>
         </Grid>
       </Grid>
