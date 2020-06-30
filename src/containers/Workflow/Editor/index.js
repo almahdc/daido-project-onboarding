@@ -10,7 +10,8 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles(() => ({
   container: {
-    padding: "0 3em"
+    padding: "0 3em",
+    minHeight: "90vh"
   }
 }));
 
