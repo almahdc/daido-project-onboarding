@@ -9,7 +9,9 @@ const theme = themeType => {
       type: themeType === DARK_THEME ? DARK_THEME : LIGHT_THEME,
       primary: {
         main: "#0B43A4",
-        contrastText: "#fff"
+        contrastText: "#fff",
+        light: "#757ce8",
+        dark: "#002884"
       },
       text: {
         primary: "#fff",

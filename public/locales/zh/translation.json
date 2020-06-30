@@ -58,5 +58,7 @@
   "auth.sing.in.password.placeholder" : "你好",
   "auth.sing.in.button" : "你好",
 
-  "footer.copyright.text" : "© Copyright 2020 By Daido"
+  "footer.copyright.text" : "© Copyright 2020 By Daido",
+
+  "auth.demo.credentials.onboarder.info.text" : "<strong>Onboarder credentials:</strong> almahdc+admin@gmail admin123 <br/> <strong>Onboardee credentials:</strong> almahdc+manuf@gmail manuf123"
 }

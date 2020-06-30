@@ -1,52 +1,49 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createManufacturer = /* GraphQL */ `
-  mutation CreateManufacturer(
-    $input: CreateManufacturerInput!
-    $condition: ModelManufacturerConditionInput
+export const createSurvey = /* GraphQL */ `
+  mutation CreateSurvey(
+    $input: CreateSurveyInput!
+    $condition: ModelSurveyConditionInput
   ) {
-    createManufacturer(input: $input, condition: $condition) {
+    createSurvey(input: $input, condition: $condition) {
       id
-      name
-      description
-      _version
-      _deleted
-      _lastChangedAt
+      title
+      content
+      price
+      rating
       createdAt
       updatedAt
     }
   }
 `;
-export const updateManufacturer = /* GraphQL */ `
-  mutation UpdateManufacturer(
-    $input: UpdateManufacturerInput!
-    $condition: ModelManufacturerConditionInput
+export const updateSurvey = /* GraphQL */ `
+  mutation UpdateSurvey(
+    $input: UpdateSurveyInput!
+    $condition: ModelSurveyConditionInput
   ) {
-    updateManufacturer(input: $input, condition: $condition) {
+    updateSurvey(input: $input, condition: $condition) {
       id
-      name
-      description
-      _version
-      _deleted
-      _lastChangedAt
+      title
+      content
+      price
+      rating
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteManufacturer = /* GraphQL */ `
-  mutation DeleteManufacturer(
-    $input: DeleteManufacturerInput!
-    $condition: ModelManufacturerConditionInput
+export const deleteSurvey = /* GraphQL */ `
+  mutation DeleteSurvey(
+    $input: DeleteSurveyInput!
+    $condition: ModelSurveyConditionInput
   ) {
-    deleteManufacturer(input: $input, condition: $condition) {
+    deleteSurvey(input: $input, condition: $condition) {
       id
-      name
-      description
-      _version
-      _deleted
-      _lastChangedAt
+      title
+      content
+      price
+      rating
       createdAt
       updatedAt
     }
