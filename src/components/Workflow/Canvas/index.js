@@ -2,7 +2,7 @@ import React from "react";
 
 import {FlowChartWithState} from "@mrblenny/react-flow-chart";
 
-import {sampleChart} from "../../../utility/flowchart/sampleChart";
+import {chartSimple} from "../../../utility/flowchart/chart";
 
 // components
 
@@ -19,18 +19,6 @@ const useStyles = makeStyles(() => ({
     padding: "0.5em"
   }
 }));
-
-const chartSimple = {
-  scale: 1,
-  offset: {
-    x: 0,
-    y: 0
-  },
-  nodes: {},
-  links: {},
-  selected: {},
-  hovered: {}
-};
 
 // TODO: hm styled components, move it to a new file and do it with material-ui
 

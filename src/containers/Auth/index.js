@@ -71,7 +71,7 @@ function reducer(state, action) {
 // component
 export default function Authentication() {
   const classes = useStyles();
-  const {t, i18n} = useTranslation();
+  const {i18n} = useTranslation();
 
   const formType = "signIn";
   const [formState, updateFormState] = useReducer(reducer, initialFormState);

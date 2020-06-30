@@ -1,5 +1,3 @@
-import {IChart} from "@mrblenny/react-flow-chart";
-
 export const sampleChart = {
   offset: {
     x: 0,
@@ -127,6 +125,18 @@ export const sampleChart = {
       }
     }
   },
+  selected: {},
+  hovered: {}
+};
+
+export const chartSimple = {
+  scale: 1,
+  offset: {
+    x: 0,
+    y: 0
+  },
+  nodes: {},
+  links: {},
   selected: {},
   hovered: {}
 };

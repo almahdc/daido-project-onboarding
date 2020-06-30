@@ -16,6 +16,7 @@ export const getNodeData = type => {
         properties: {}
       };
     }
+
     case "OUTPUT": {
       return {
         type: "output-only",
@@ -28,21 +29,20 @@ export const getNodeData = type => {
         properties: {}
       };
     }
-    case "INPUT":
-      {
-        return {
-          type: "input-only",
-          ports: {
-            port1: {
-              id: "port1",
-              type: "bottom"
-            }
-          },
-          properties: {}
-        };
-      }
 
-      break;
+    case "INPUT": {
+      return {
+        type: "input-only",
+        ports: {
+          port1: {
+            id: "port1",
+            type: "bottom"
+          }
+        },
+        properties: {}
+      };
+    }
+
     default: {
       return {
         type: "input-output",
