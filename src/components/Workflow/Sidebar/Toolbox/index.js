@@ -6,16 +6,26 @@ import Paper from "@material-ui/core/Paper";
 
 // components
 import SidebarGroup from "../SidebarGroup";
-import {Typography} from "@material-ui/core";
+import {Typography, Button, Grid} from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   sidebar: {
     padding: "1em",
     backgroundColor: "#7FECAF",
-    height: "75vh"
+    height: "75vh",
+    display: "flex",
+    flexDirection: "column"
   },
   title: {
     textAlign: "center"
+  },
+  blank: {
+    flex: 1,
+    backgroundColor: "transparent"
+  },
+  button: {
+    backgroundColor: "#99FFC9",
+    width: "100%",
   }
 }));
 
@@ -30,7 +40,7 @@ const outputItems = [
   {name: "Transportation node"}
 ];
 
-export default function SidebarToolbox({handleDragItem}) {
+export default function SidebarToolbox({handleDragItem, openDetails}) {
   const classes = useStyles();
 
   return (
@@ -53,6 +63,11 @@ export default function SidebarToolbox({handleDragItem}) {
         items={outputItems}
         handleDragItem={handleDragItem}
       />
+
+      <Grid className={classes.blank} />
+      <Button className={classes.button}  variant="outlined" color="primary" onClick={openDetails}>
+        Open Details
+      </Button>
     </Paper>
   );
 }
