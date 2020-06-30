@@ -19,12 +19,17 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const inputItems = [{name: "Machine Node I"}, {name: "Transportation node I"}];
+const inputItems = [
+  {name: "Machine Node I"},
+  {name: "Transportation node I"}
+];
 const inputOutputItems = [
   {name: "Machine Node IO"},
   {name: "Chemical process node IO"}
 ];
-const outputItems = [{name: "Transportation node O"}];
+const outputItems = [
+  {name: "Transportation node O"}
+];
 
 export default function SidebarToolbox({handleDragItem}) {
   const classes = useStyles();
