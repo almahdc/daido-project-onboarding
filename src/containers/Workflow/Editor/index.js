@@ -7,7 +7,7 @@ import WorkflowSidebarToolbox from "../../../components/Workflow/Sidebar/Toolbox
 // style
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { Typography } from "@material-ui/core";
+import {Typography} from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
     minHeight: "90vh"
   },
   text: {
-    padding: "0 50px",
+    padding: "0 50px"
   }
 }));
 
@@ -24,7 +24,7 @@ const Editor = () => {
 
   const handleDragItem = e => {
     const data = getChartData();
-    console.log("data", e);
+    console.log("data is being dragged", e);
     e.dataTransfer.setData("react-flow-chart", JSON.stringify(data));
   };
 
@@ -47,8 +47,12 @@ const Editor = () => {
 
   return (
     <>
-    <Typography className={classes.text} variant="h4" color="primary">Name of the process flow</Typography>
-      <Typography className={classes.text} variant="h5" color="primary">Description</Typography>
+      <Typography className={classes.text} variant="h4" color="primary">
+        Name of the process flow
+      </Typography>
+      <Typography className={classes.text} variant="h5" color="primary">
+        Description
+      </Typography>
       <Grid container spacing={5} className={classes.container}>
         <Grid item md={8}>
           <WorkflowCanvas mode={"edit"} />
