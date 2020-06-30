@@ -7,11 +7,15 @@ import WorkflowSidebarToolbox from "../../../components/Workflow/Sidebar/Toolbox
 // style
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   container: {
-    padding: "0 3em",
+    padding: "20px 3em",
     minHeight: "90vh"
+  },
+  text: {
+    padding: "0 50px",
   }
 }));
 
@@ -42,14 +46,18 @@ const Editor = () => {
   };
 
   return (
-    <Grid container spacing={5} className={classes.container}>
-      <Grid item md={9}>
-        <WorkflowCanvas mode={"edit"} />
+    <>
+    <Typography className={classes.text} variant="h4" color="primary">Name of the process flow</Typography>
+      <Typography className={classes.text} variant="h5" color="primary">Description</Typography>
+      <Grid container spacing={5} className={classes.container}>
+        <Grid item md={8}>
+          <WorkflowCanvas mode={"edit"} />
+        </Grid>
+        <Grid item md={4}>
+          <WorkflowSidebarToolbox handleDragItem={handleDragItem} />
+        </Grid>
       </Grid>
-      <Grid item md={3}>
-        <WorkflowSidebarToolbox handleDragItem={handleDragItem} />
-      </Grid>
-    </Grid>
+    </>
   );
 };
 
