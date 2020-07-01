@@ -2,7 +2,7 @@ import React, {useReducer} from "react";
 import {Redirect} from "react-router";
 
 // translation
-import {useTranslation} from "react-i18next";
+import {useTranslation, Trans} from "react-i18next";
 
 // aws
 import {Auth} from "aws-amplify";
@@ -11,11 +11,19 @@ import {Auth} from "aws-amplify";
 import UserData from "../../utility/userData";
 
 // style
+import styled from "styled-components";
 import {makeStyles} from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+
+const MyTextField = styled(TextField)`
+  .MuiInputBase-root {
+    color: black;
+  }
+`;
 
 const useStyles = makeStyles(theme => ({
   box: {
@@ -30,6 +38,14 @@ const useStyles = makeStyles(theme => ({
   },
   grid: {
     margin: "auto"
+  },
+  button: {
+    width: "100%",
+    marginTop: "1.5em",
+    height: "3.5em"
+  },
+  credentials: {
+    marginTop: "1em"
   }
 }));
 
@@ -55,6 +71,7 @@ function reducer(state, action) {
 // component
 export default function Authentication() {
   const classes = useStyles();
+  const {i18n} = useTranslation();
 
   const formType = "signIn";
   const [formState, updateFormState] = useReducer(reducer, initialFormState);
@@ -85,7 +102,7 @@ export default function Authentication() {
   return (
     <Grid container>
       {UserData.getUser() ? (
-        <Redirect to="/" />
+        <Redirect to={`/${i18n.language}/home`} />
       ) : (
         <Grid item md={4} xs={12} className={classes.grid}>
           {renderForm(formState)}
@@ -100,7 +117,7 @@ function SignIn(props) {
   const classes = useStyles();
   return (
     <Box className={classes.box}>
-      <TextField
+      <MyTextField
         id="standard-username-input"
         label={t("auth.sing.in.username.placeholder")}
         type="text"
@@ -110,9 +127,12 @@ function SignIn(props) {
           props.updateFormState(e);
         }}
         className={classes.formItems}
+        color="primary"
+        classes={{root: classes.input}}
+        variant="outlined"
       />
 
-      <TextField
+      <MyTextField
         id="standard-password-input"
         label={t("auth.sing.in.password.placeholder")}
         type="password"
@@ -123,12 +143,24 @@ function SignIn(props) {
           props.updateFormState(e);
         }}
         className={classes.formItems}
+        color="primary"
+        variant="outlined"
       />
+      <Typography
+        variant="caption"
+        color="textSecondary"
+        className={classes.credentials}
+      >
+        <Trans i18nKey="auth.demo.credentials.onboarder.info.text">
+          Hello <strong>Alma</strong>
+        </Trans>
+      </Typography>
+
       <Button
         variant="contained"
         color="primary"
         onClick={props.signIn}
-        className={classes.formItems}
+        className={classes.button}
       >
         {t("auth.sing.in.button")}
       </Button>

@@ -58,5 +58,7 @@
 
   "auth.sing.in.username.placeholder" : "Username",
   "auth.sing.in.password.placeholder" : "Password",
-  "auth.sing.in.button" : "Sign in"
+  "auth.sing.in.button" : "Sign in",
+
+  "auth.demo.credentials.onboarder.info.text" : "<strong>Onboarder credentials:</strong> almahdc+admin@gmail admin123 <br/> <strong>Onboardee credentials:</strong> almahdc+manuf@gmail manuf123"
 }

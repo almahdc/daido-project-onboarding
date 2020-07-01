@@ -1,5 +1,0 @@
-type Manufacturer @model {
-  id: ID!
-  name: String!
-  description: String
-}
