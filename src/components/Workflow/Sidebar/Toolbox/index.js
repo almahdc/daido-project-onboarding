@@ -11,10 +11,8 @@ import {Typography, Button, Grid} from "@material-ui/core";
 const useStyles = makeStyles(() => ({
   sidebar: {
     padding: "1em",
-    backgroundColor: "#7FECAF",
-    height: "75vh",
-    display: "flex",
-    flexDirection: "column"
+    backgroundColor: "#ececec",
+    minHeight: "75vh"
   },
   title: {
     textAlign: "center"
@@ -25,27 +23,23 @@ const useStyles = makeStyles(() => ({
   },
   button: {
     backgroundColor: "#99FFC9",
-    width: "100%",
+    width: "100%"
   }
 }));
 
-const inputItems = [
-  {name: "Material node"}
-];
+const inputItems = [{name: "Material node"}];
 const inputOutputItems = [
   {name: "Machine Node"},
   {name: "Chemical process node"}
 ];
-const outputItems = [
-  {name: "Transportation node"}
-];
+const outputItems = [{name: "Transportation node"}];
 
 export default function SidebarToolbox({handleDragItem, openDetails}) {
   const classes = useStyles();
 
   return (
     <Paper className={classes.sidebar} color="secondary">
-      <Typography className={classes.title} variant="h5" color="primary">
+      <Typography className={classes.title} variant="button" color="primary">
         TOOLBOX
       </Typography>
       <SidebarGroup
@@ -65,7 +59,12 @@ export default function SidebarToolbox({handleDragItem, openDetails}) {
       />
 
       <Grid className={classes.blank} />
-      <Button className={classes.button}  variant="outlined" color="primary" onClick={openDetails}>
+      <Button
+        className={classes.button}
+        variant="outlined"
+        color="primary"
+        onClick={openDetails}
+      >
         Open Details
       </Button>
     </Paper>

@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
   group: {
     padding: "1em",
     margin: "1em",
-    backgroundColor: "#99FFC9"
+    backgroundColor: "#fff"
   },
   title: {
     textAlign: "center"
@@ -23,7 +23,7 @@ export default function SidebarGroup({groupName, items, handleDragItem}) {
   const classes = useStyles();
   return (
     <Paper className={classes.group} color="secondary">
-      <Typography className={classes.title} variant="h6" color="primary">
+      <Typography className={classes.title} variant="button" color="primary">
         {groupName}
       </Typography>
       {items.map(function(item, index) {
