@@ -89,7 +89,7 @@ export default function TeamLeadership() {
         <Grid item md={2}>
           <OneTeamPlayer
             image={Tang}
-            name={t("landing.page.team.leadership.player.5.name.text")}
+            name={t("landing.page.team.leadership.player.6.name.text")}
             content1={t("landing.page.team.leadership.uni.scad.text")}
             content2={t("landing.page.team.leadership.skill.ux.text")}
           />

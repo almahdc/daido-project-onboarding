@@ -7,8 +7,9 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(() => ({
   style: {
-    padding: "1em",
-    margin: "1em"
+    padding: "0.1em",
+    margin: "0.5em 0",
+    backgroundColor: "#7FECAF"
   },
   title: {
     textAlign: "center"
@@ -24,7 +25,13 @@ export default function SideBarItem({type, onDragItem}) {
       color="primary"
       onDragStart={onDragItem}
     >
-      <Typography className={classes.title} variant="button" display="block" gutterBottom color="primary">
+      <Typography
+        className={classes.title}
+        variant="overline"
+        display="block"
+        gutterBottom
+        color="primary"
+      >
         {type}
       </Typography>
     </Paper>

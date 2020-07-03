@@ -12,10 +12,8 @@ import { useTranslation } from "react-i18next";
 const useStyles = makeStyles(() => ({
   sidebar: {
     padding: "1em",
-    backgroundColor: "#7FECAF",
-    height: "75vh",
-    display: "flex",
-    flexDirection: "column"
+    backgroundColor: "#ececec",
+    minHeight: "75vh"
   },
   title: {
     textAlign: "center"
@@ -26,21 +24,21 @@ const useStyles = makeStyles(() => ({
   },
   button: {
     backgroundColor: "#99FFC9",
-    width: "100%",
+    width: "100%"
   }
 }));
+
 
 // TODO: REPLACE HARDCODED ITEMS
 const inputItems = [
   {name: "Material node"}
 ];
+
 const inputOutputItems = [
   {name: "Machine Node"},
   {name: "Chemical process node"}
 ];
-const outputItems = [
-  {name: "Transportation node"}
-];
+const outputItems = [{name: "Transportation node"}];
 
 export default function SidebarToolbox({handleDragItem, openDetails}) {
   const classes = useStyles();
@@ -69,7 +67,12 @@ export default function SidebarToolbox({handleDragItem, openDetails}) {
 
       {/* TODO REMOVE SPACER AND BUTTON AFTER CANVAS IMPLEMENTATION */}
       <Grid className={classes.blank} />
-      <Button className={classes.button}  variant="outlined" color="primary" onClick={openDetails}>
+      <Button
+        className={classes.button}
+        variant="outlined"
+        color="primary"
+        onClick={openDetails}
+      >
         Open Details
       </Button>
     </Paper>
