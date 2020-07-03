@@ -9,10 +9,11 @@ import NodeDialog from "../../../components/Workflow/NodeDialog";
 // style
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { Typography, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 
 // utility
 import {getNodeData} from "../../../utility/flowchart/nodeData";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -39,6 +40,8 @@ const useStyles = makeStyles(() => ({
 
 const Editor = () => {
   const classes = useStyles();
+
+  const {t} = useTranslation();
 
   const [open, setOpen] = React.useState(false);
   const [detailsView, setDetailsView] = React.useState(false);
@@ -106,8 +109,8 @@ const Editor = () => {
 
   return (
     <>
-      <TextField InputProps={{ className: classes.input }} className={classes.nameField} id="process-name" label="Process flow name" onChange={(event) => setProcessName(event.target.value)} fullWidth autoCapitalize required/>
-      <TextField InputProps={{ className: classes.input }} className={classes.descriptionField} id="process-description" label="Description" onChange={(event) => setProcessDescription(event.target.value)} fullWidth autoCapitalize required/>
+      <TextField InputProps={{ className: classes.input }} className={classes.nameField} id="process-name" label={t("workflow.page.editor.process.name.title")} onChange={(event) => setProcessName(event.target.value)} fullWidth autoCapitalize required/>
+      <TextField InputProps={{ className: classes.input }} className={classes.descriptionField} id="process-description" label={t("workflow.page.editor.process.name.description")} onChange={(event) => setProcessDescription(event.target.value)} fullWidth autoCapitalize required/>
       <Grid container spacing={5} className={classes.container}>
         <Grid item md={8}>
           <WorkflowCanvas mode={"edit"} />

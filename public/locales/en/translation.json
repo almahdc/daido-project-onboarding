@@ -54,6 +54,21 @@
   "landing.page.our.partners.2.content.text" : "Advised by Tilmann Vahle and Sören Buttkereit",
   "landing.page.our.partners.3.content.text" : "Advised by Robert Metzger",
 
+  "workflow.page.editor.process.name.title" : "Process flow name",
+  "workflow.page.editor.process.name.description" : "Description",
+  "workflow.page.editor.process.type.input" : "INPUT",
+  "workflow.page.editor.process.type.process" : "PROCESS",
+  "workflow.page.editor.process.type.output" : "OUTPUT",
+  "workflow.page.editor.dialog.cancel" : "CANCEL",
+  "workflow.page.editor.dialog.save" : "SAVE",
+  "workflow.page.editor.details.title" : "TITLE",
+  "workflow.page.editor.details.type" : "TYPE:",
+  "workflow.page.editor.details.name" : "NAME:",
+  "workflow.page.editor.details.description" : "DESCRIPTION:",
+  "workflow.page.editor.details.cancel" : "CANCEL",
+  "workflow.page.editor.details.edit" : "EDIT",
+  "workflow.page.editor.toolbox.title": "TOOLBOX",
+
   "footer.copyright.text" : "© Copyright 2020 By Daido",
 
   "auth.sing.in.username.placeholder" : "Username",

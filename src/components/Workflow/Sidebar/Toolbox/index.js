@@ -7,6 +7,7 @@ import Paper from "@material-ui/core/Paper";
 // components
 import SidebarGroup from "../SidebarGroup";
 import {Typography, Button, Grid} from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(() => ({
   sidebar: {
@@ -27,7 +28,12 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const inputItems = [{name: "Material node"}];
+
+// TODO: REPLACE HARDCODED ITEMS
+const inputItems = [
+  {name: "Material node"}
+];
+
 const inputOutputItems = [
   {name: "Machine Node"},
   {name: "Chemical process node"}
@@ -36,28 +42,30 @@ const outputItems = [{name: "Transportation node"}];
 
 export default function SidebarToolbox({handleDragItem, openDetails}) {
   const classes = useStyles();
+  const {t} = useTranslation();
 
   return (
     <Paper className={classes.sidebar} color="secondary">
-      <Typography className={classes.title} variant="button" color="primary">
-        TOOLBOX
+      <Typography className={classes.title} variant="h5" color="primary">
+        {t("workflow.page.editor.toolbox.title")}
       </Typography>
       <SidebarGroup
-        groupName="INPUT"
+        groupName={t("workflow.page.editor.process.type.input")}
         items={inputItems}
         handleDragItem={handleDragItem}
       />
       <SidebarGroup
-        groupName="INPUT-OUTPUT"
+        groupName={t("workflow.page.editor.process.type.process")}
         items={inputOutputItems}
         handleDragItem={handleDragItem}
       />
       <SidebarGroup
-        groupName="OUTPUT"
+        groupName={t("workflow.page.editor.process.type.output")}
         items={outputItems}
         handleDragItem={handleDragItem}
       />
 
+      {/* TODO REMOVE SPACER AND BUTTON AFTER CANVAS IMPLEMENTATION */}
       <Grid className={classes.blank} />
       <Button
         className={classes.button}
