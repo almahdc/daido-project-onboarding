@@ -7,7 +7,7 @@ import Paper from "@material-ui/core/Paper";
 // components
 import SidebarGroup from "../SidebarGroup";
 import {Typography, Button, Grid} from "@material-ui/core";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 
 const useStyles = makeStyles(() => ({
   sidebar: {
@@ -23,16 +23,14 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "transparent"
   },
   button: {
-    backgroundColor: "#99FFC9",
-    width: "100%"
+    backgroundColor: "#fff",
+    width: "100%",
+    border: "0px"
   }
 }));
 
-
 // TODO: REPLACE HARDCODED ITEMS
-const inputItems = [
-  {name: "Material node"}
-];
+const inputItems = [{name: "Material node"}];
 
 const inputOutputItems = [
   {name: "Machine Node"},
@@ -64,17 +62,6 @@ export default function SidebarToolbox({handleDragItem, openDetails}) {
         items={outputItems}
         handleDragItem={handleDragItem}
       />
-
-      {/* TODO REMOVE SPACER AND BUTTON AFTER CANVAS IMPLEMENTATION */}
-      <Grid className={classes.blank} />
-      <Button
-        className={classes.button}
-        variant="outlined"
-        color="primary"
-        onClick={openDetails}
-      >
-        Open Details
-      </Button>
     </Paper>
   );
 }

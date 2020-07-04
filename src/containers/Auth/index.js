@@ -11,19 +11,12 @@ import {Auth} from "aws-amplify";
 import UserData from "../../utility/userData";
 
 // style
-import styled from "styled-components";
 import {makeStyles} from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import MyTextField from "../../components/MyTextField";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-
-const MyTextField = styled(TextField)`
-  .MuiInputBase-root {
-    color: black;
-  }
-`;
 
 const useStyles = makeStyles(theme => ({
   box: {
@@ -102,7 +95,7 @@ export default function Authentication() {
   return (
     <Grid container>
       {UserData.getUser() ? (
-        <Redirect to={`/${i18n.language}/home`} />
+        <Redirect to={`/${i18n.language}/home?theme=blue`} />
       ) : (
         <Grid item md={4} xs={12} className={classes.grid}>
           {renderForm(formState)}

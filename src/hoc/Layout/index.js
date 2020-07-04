@@ -18,8 +18,8 @@ const useStyles = makeStyles({
   container: {
     backgroundRepeat: "no-repeat",
     backgroundImage: layoutType => (layoutType ? `url(${Background})` : ""),
-    backgroundSize: "contain",
-    background: "white"
+    background: "white",
+    backgroundSize: "cover"
   },
   content: {
     minHeight: "calc(100vh - 106px - 28px)"
@@ -39,15 +39,21 @@ const useStyles = makeStyles({
 function Layout(props) {
   const history = useHistory();
   const [layoutType, setLayoutType] = useState(
-    window.location.pathname.includes("home") ? true : false
+    window.location.search.includes("?theme=blue") ||
+      window.location.pathname.includes("home")
+      ? true
+      : false
   );
   const {type, topLeft, topRight, bottom} = props;
 
   useEffect(() => {
+    console.log("history", history);
     history.listen((location, action) => {
       setLayoutType(
         location.pathname.includes("home") ||
-          window.location.pathname.includes("home")
+          window.location.pathname.includes("home") ||
+          window.location.search.includes("?theme=blue") ||
+          location.search.includes("?theme=blue")
           ? true
           : false
       );
@@ -55,7 +61,12 @@ function Layout(props) {
   }, [history]);
 
   useEffect(() => {
-    setLayoutType(window.location.pathname.includes("home") ? true : false);
+    setLayoutType(
+      window.location.pathname.includes("home") ||
+        window.location.search.includes("?theme=blue")
+        ? true
+        : false
+    );
   }, []);
 
   const classes = useStyles(layoutType);

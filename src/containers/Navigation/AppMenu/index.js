@@ -27,6 +27,13 @@ const useStyles = makeStyles({
   },
   imageLogo: {
     maxWidth: "8em"
+  },
+  menu: {
+    flexBasis: "200px",
+    flexShrink: "0"
+  },
+  toolbar: {
+    display: "flex"
   }
 });
 
@@ -65,15 +72,15 @@ export default function AppMenu(props) {
     ));
 
   return (
-    <Box display="flex" flexDirection="row-reverse" marginBottom="40px">
-      <Toolbar className={classes.flexGrow}>
+    <Box marginBottom="40px">
+      <Toolbar className={classes.toolbar}>
         <div className={classes.flexGrow}>
           <Button
             edge="start"
             color="inherit"
             aria-label="menu"
             component={NavLink}
-            to={`/${i18n.language}/home`}
+            to={`/${i18n.language}/home?theme=blue`}
           >
             <img
               src={props.type ? Logo : Logo2}
@@ -83,7 +90,7 @@ export default function AppMenu(props) {
           </Button>
         </div>
         <MenuToggle clicked={toggleDrawer(true)} />
-        <div className={classes.Menu}>{menuItems}</div>
+        <div className={classes.menu}>{menuItems}</div>
       </Toolbar>
       <Drawer anchor="top" open={drawer} onClose={toggleDrawer(false)}>
         {menuItems}

@@ -38,15 +38,16 @@ const ChangeLanguage = ({type}) => {
       setDropdownLang(newLanguage);
 
       const newPathName = replaceString(
-        history.location.pathname,
+        history.location.pathname + history.location.search,
         0,
         `/${newLanguage}`,
         3
       );
 
-      i18n.changeLanguage(newLanguage);
-
+      console.log(newPathName);
       history.replace(newPathName);
+
+      i18n.changeLanguage(newLanguage);
     }
   };
 
