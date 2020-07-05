@@ -60,34 +60,28 @@ const Editor = () => {
   };
 
   const nodeSelected = (selectedNode, chart) => {
-    let selectedNodeData = null;
-    if (selectedNode && !changedDataFlag) {
-      selectedNodeData = chart.nodes[selectedNode.id];
+    if (
+      selectedNode &&
+      !changedDataFlag &&
+      chart.hovered.id === selectedNode.id
+    ) {
+      setDetailsData(chart.nodes[selectedNode.id]);
       setDetailsView(true);
-      setDetailsData(selectedNodeData);
     }
   };
 
   const nodeNotSelected = () => {
-    setDetailsView(false);
     setDetailsData(null);
-    setChangedDataFlag(false);
-  };
-
-  const doneUpdate = () => {
-    setUpdatedDetailsData(null);
+    setDetailsView(false);
   };
 
   const handleSaveData = (e, newDetailsData) => {
     setUpdatedDetailsData(newDetailsData);
-    setDetailsView(false);
-    setDetailsData(null);
-    setChangedDataFlag(false);
+    nodeNotSelected();
   };
 
   const changedData = changedData => {
     setDetailsData(changedData);
-    setChangedDataFlag(true);
   };
 
   return (
@@ -121,13 +115,12 @@ const Editor = () => {
             nodeSelected={nodeSelected}
             nodeNotSelected={nodeNotSelected}
             changedNodeData={updatedDetailsData}
-            doneUpdate={doneUpdate}
           />
         </Grid>
         <Grid item md={4}>
           {detailsView ? (
             <SidebarDetails
-              detailsData={detailsData}
+              data={detailsData}
               onSaveData={handleSaveData}
               onChangedData={changedData}
             />

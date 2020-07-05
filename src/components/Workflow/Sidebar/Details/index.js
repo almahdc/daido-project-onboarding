@@ -62,7 +62,7 @@ const useStyles = makeStyles(() => ({
 export default function SidebarDetails({
   onSaveData,
   onChangedData,
-  detailsData,
+  data,
   mode
 }) {
   const classes = useStyles();
@@ -79,7 +79,7 @@ export default function SidebarDetails({
       </Typography>
       <Input
         className={classes.value}
-        value={detailsData.properties.subtype}
+        value={data.properties.subtype}
         disabled={true}
         disableUnderline={true}
       />
@@ -88,12 +88,12 @@ export default function SidebarDetails({
       </Typography>
       <Input
         className={classes.value}
-        value={detailsData.properties.name}
+        value={data.properties.name}
         disableUnderline={true}
         onChange={event =>
           onChangedData({
-            ...detailsData,
-            properties: {...detailsData.properties, name: event.target.value}
+            ...data,
+            properties: {...data.properties, name: event.target.value}
           })
         }
       />
@@ -102,12 +102,12 @@ export default function SidebarDetails({
       </Typography>
       <Input
         className={classes.value}
-        value={detailsData.properties.amount}
+        value={data.properties.amount}
         disableUnderline={true}
         onChange={event =>
           onChangedData({
-            ...detailsData,
-            properties: {...detailsData.properties, amount: event.target.value}
+            ...data,
+            properties: {...data.properties, amount: event.target.value}
           })
         }
         endAdornment={
@@ -131,19 +131,19 @@ export default function SidebarDetails({
         className={classes.value}
         disabled={true}
         disableUnderline={true}
-        value={detailsData.properties.subtype}
+        value={data.properties.subtype}
       />
       <Typography className={classes.label} variant="body2" color="primary">
         {t("workflow.page.editor.details.name")}
       </Typography>
       <Input
         className={classes.value}
-        value={detailsData.properties.name}
+        value={data.properties.name}
         disableUnderline={true}
         onChange={event =>
           onChangedData({
-            ...detailsData,
-            properties: {...detailsData.properties, name: event.target.value}
+            ...data,
+            properties: {...data.properties, name: event.target.value}
           })
         }
       />
@@ -152,12 +152,12 @@ export default function SidebarDetails({
       </Typography>
       <Input
         className={classes.value}
-        value={detailsData.properties.amount}
+        value={data.properties.amount}
         disableUnderline={true}
         onChange={event =>
           onChangedData({
-            ...detailsData,
-            properties: {...detailsData.properties, amount: event.target.value}
+            ...data,
+            properties: {...data.properties, amount: event.target.value}
           })
         }
         endAdornment={
@@ -171,13 +171,13 @@ export default function SidebarDetails({
       </Typography>
       <Input
         className={classes.value}
-        value={detailsData.properties.supplier}
+        value={data.properties.supplier}
         disableUnderline={true}
         onChange={event =>
           onChangedData({
-            ...detailsData,
+            ...data,
             properties: {
-              ...detailsData.properties,
+              ...data.properties,
               supplier: event.target.value
             }
           })
@@ -198,19 +198,19 @@ export default function SidebarDetails({
         className={classes.value}
         disabled={true}
         disableUnderline={true}
-        value={detailsData.properties.subtype}
+        value={data.properties.subtype}
       />
       <Typography className={classes.label} variant="body2" color="primary">
         {t("workflow.page.editor.details.name")}
       </Typography>
       <Input
         className={classes.value}
-        value={detailsData.properties.name}
+        value={data.properties.name}
         disableUnderline={true}
         onChange={event =>
           onChangedData({
-            ...detailsData,
-            properties: {...detailsData.properties, name: event.target.value}
+            ...data,
+            properties: {...data.properties, name: event.target.value}
           })
         }
       />
@@ -219,13 +219,13 @@ export default function SidebarDetails({
       </Typography>
       <Input
         className={classes.value}
-        value={detailsData.properties.duration}
+        value={data.properties.duration}
         disableUnderline={true}
         onChange={event =>
           onChangedData({
-            ...detailsData,
+            ...data,
             properties: {
-              ...detailsData.properties,
+              ...data.properties,
               duration: event.target.value
             }
           })
@@ -240,9 +240,9 @@ export default function SidebarDetails({
   );
 
   const sidebarData =
-    detailsData.type === INPUT_ONLY
+    data.type === INPUT_ONLY
       ? sidebarDetailsInput
-      : detailsData.type === OUTPUT_ONLY
+      : data.type === OUTPUT_ONLY
       ? sidebarDetailsOutput
       : sidebarDetailsOutputInput;
 
@@ -256,7 +256,7 @@ export default function SidebarDetails({
             className={classes.editButton}
             variant="outlined"
             color="primary"
-            onClick={e => onSaveData(e, detailsData)}
+            onClick={e => onSaveData(e, data)}
           >
             {t("workflow.page.editor.details.save")}
           </Button>

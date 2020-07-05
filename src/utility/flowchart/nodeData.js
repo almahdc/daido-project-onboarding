@@ -24,7 +24,7 @@ export const getNodeData = (nodeType, processPointType) => {
       };
       nodeData.properties = {
         ...nodeData.properties,
-        duration: "0h"
+        duration: "0"
       };
 
       break;
