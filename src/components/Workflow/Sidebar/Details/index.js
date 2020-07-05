@@ -59,12 +59,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-export default function SidebarDetails({
-  onSaveData,
-  onChangedData,
-  data,
-  mode
-}) {
+export default function SidebarDetails({onSaveData, onChangedData, data}) {
   const classes = useStyles();
 
   const {t} = useTranslation();
