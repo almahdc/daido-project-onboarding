@@ -1,14 +1,7 @@
 {
-  "short_name": "Daido",
-  "name": "The front-end UI for Kollect from Daido",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "16x16",
-      "type": "image/x-icon"
-    }
-  ],
-  "start_url": "daido-project-onboarding",
+  "short_name": "Onboarding",
+  "name": "Onboarding App",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

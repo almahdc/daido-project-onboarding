@@ -51,6 +51,8 @@ const Editor = () => {
 
   const [updatedDetailsData, setUpdatedDetailsData] = React.useState(null);
 
+  const [changedDataFlag, setChangedDataFlag] = React.useState(false);
+
   const handleDragItem = (e, node) => {
     e.persist();
     const item = getNodeData(node.type, node.subtype);
@@ -58,7 +60,11 @@ const Editor = () => {
   };
 
   const nodeSelected = (selectedNode, chart) => {
-    if (selectedNode && chart.hovered.id === selectedNode.id) {
+    if (
+      selectedNode &&
+      !changedDataFlag &&
+      chart.hovered.id === selectedNode.id
+    ) {
       setDetailsData(chart.nodes[selectedNode.id]);
       setDetailsView(true);
     }
