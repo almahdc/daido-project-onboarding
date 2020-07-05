@@ -6,8 +6,15 @@ import Paper from "@material-ui/core/Paper";
 
 // components
 import SidebarGroup from "../SidebarGroup";
-import {Typography, Button, Grid} from "@material-ui/core";
+import {Typography} from "@material-ui/core";
 import {useTranslation} from "react-i18next";
+
+// utility
+import {
+  INPUT_ONLY,
+  OUTPUT_INPUT,
+  OUTPUT_ONLY
+} from "../../../../utility/flowchart/constants";
 
 const useStyles = makeStyles(() => ({
   sidebar: {
@@ -38,7 +45,7 @@ const inputOutputItems = [
 ];
 const outputItems = [{name: "Transportation node"}];
 
-export default function SidebarToolbox({handleDragItem, openDetails}) {
+export default function SidebarToolbox({onDragItem, openDetails}) {
   const classes = useStyles();
   const {t} = useTranslation();
 
@@ -48,19 +55,22 @@ export default function SidebarToolbox({handleDragItem, openDetails}) {
         {t("workflow.page.editor.toolbox.title")}
       </Typography>
       <SidebarGroup
+        groupType={INPUT_ONLY}
         groupName={t("workflow.page.editor.process.type.input")}
         items={inputItems}
-        handleDragItem={handleDragItem}
+        handleDragItem={onDragItem}
       />
       <SidebarGroup
+        groupType={OUTPUT_INPUT}
         groupName={t("workflow.page.editor.process.type.process")}
         items={inputOutputItems}
-        handleDragItem={handleDragItem}
+        handleDragItem={onDragItem}
       />
       <SidebarGroup
+        groupType={OUTPUT_ONLY}
         groupName={t("workflow.page.editor.process.type.output")}
         items={outputItems}
-        handleDragItem={handleDragItem}
+        handleDragItem={onDragItem}
       />
     </Paper>
   );

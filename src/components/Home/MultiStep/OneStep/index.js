@@ -12,7 +12,7 @@ const useStyles = makeStyles({
   },
   circle: {
     background: isBackgroundTransparent =>
-      isBackgroundTransparent ? "" : "#DAE6FF",
+      isBackgroundTransparent ? "" : "#E3EFFF",
     borderRadius: "50px",
     width: "100px",
     height: "100px",

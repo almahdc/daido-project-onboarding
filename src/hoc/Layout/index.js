@@ -47,7 +47,6 @@ function Layout(props) {
   const {type, topLeft, topRight, bottom} = props;
 
   useEffect(() => {
-    console.log("history", history);
     history.listen((location, action) => {
       setLayoutType(
         location.pathname.includes("home") ||

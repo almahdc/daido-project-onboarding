@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {cloneDeep, mapValues} from "lodash";
 
-import {FlowChartWithState} from "@mrblenny/react-flow-chart";
+import {FlowChart} from "@mrblenny/react-flow-chart";
 import * as actions from "@mrblenny/react-flow-chart";
 
 import {chartSimple} from "../../../utility/flowchart/chart";
@@ -73,8 +73,6 @@ const NodeCustom = React.forwardRef(({node, children, ...otherProps}, ref) => {
 export default function Canvas() {
   const classes = useStyles();
 
-  console.log("actions", actions);
-
   const [chart, setChart] = useState({
     scale: 1,
     offset: {
@@ -87,17 +85,13 @@ export default function Canvas() {
     hovered: {}
   });
 
-  console.log(chartSimple, chart);
-
-  const stateActions = mapValues(actions => (...args) => setChart(...args));
-
-  console.log("selected", stateActions, chart.selected);
+  const stateActions = mapValues(actions, func => (...args) => func());
 
   return (
     <Paper className={classes.canvas} color="secondary">
-      <FlowChartWithState
-        config={{readonly: false, selectable: true}}
-        initialValue={chart}
+      <FlowChart
+        chart={chart}
+        callbacks={actions}
         Components={{Node: NodeCustom}}
       />
     </Paper>

@@ -1,63 +1,66 @@
-export const getNodeData = type => {
-  switch (type) {
-    case "INPUT-OUTPUT": {
-      return {
-        type: "input-output",
-        ports: {
-          port1: {
-            id: "port1",
-            type: "left"
-          },
-          port2: {
-            id: "port2",
-            type: "right"
-          }
-        },
-        properties: {}
+import {OUTPUT_ONLY, OUTPUT_INPUT, INPUT_ONLY} from "./constants";
+import {v4} from "uuid";
+
+export const getNodeData = (nodeType, processPointType) => {
+  const nodeData = {
+    id: v4(),
+    type: nodeType,
+    ports: {
+      port1: {},
+      port2: {}
+    },
+    properties: {subtype: processPointType, name: processPointType}
+  };
+
+  switch (nodeType) {
+    case OUTPUT_INPUT: {
+      nodeData.ports.port1 = {
+        id: "port1",
+        type: "left"
       };
+      nodeData.ports.port2 = {
+        id: "port2",
+        type: "right"
+      };
+      nodeData.properties = {
+        ...nodeData.properties,
+        duration: "0h"
+      };
+
+      break;
     }
 
-    case "OUTPUT": {
-      return {
-        type: "output-only",
-        ports: {
-          port1: {
-            id: "port1",
-            type: "top"
-          }
-        },
-        properties: {}
+    case OUTPUT_ONLY: {
+      nodeData.ports.port1 = {
+        id: "port1",
+        type: "top"
       };
+      nodeData.properties = {
+        ...nodeData.properties,
+        amount: "10"
+      };
+
+      break;
     }
 
-    case "INPUT": {
-      return {
-        type: "input-only",
-        ports: {
-          port1: {
-            id: "port1",
-            type: "bottom"
-          }
-        },
-        properties: {}
+    case INPUT_ONLY: {
+      nodeData.ports.port1 = {
+        id: "port1",
+        type: "bottom"
       };
+      nodeData.properties = {
+        ...nodeData.properties,
+        amount: "10",
+        supplier: "Congo"
+      };
+
+      break;
     }
 
     default: {
-      return {
-        type: "input-output",
-        ports: {
-          port1: {
-            id: "port1",
-            type: "left"
-          },
-          port2: {
-            id: "port2",
-            type: "right"
-          }
-        },
-        properties: {}
-      };
+      break;
     }
   }
+
+  return nodeData;
 };

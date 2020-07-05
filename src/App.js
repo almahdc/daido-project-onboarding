@@ -24,6 +24,7 @@ import theme from "./style/theme";
 import {ThemeProvider} from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
 
 // Utility
 import {DARK_THEME, LIGHT_THEME, NO_THEME} from "./utility/uiConstants";
@@ -108,24 +109,6 @@ function App() {
     }
   }, []);
 
-  const routes = (
-    <>
-      <Route path="/:lang/home">
-        <Home />
-      </Route>
-      <Route path="/:lang/auth">
-        <Authentication />
-      </Route>
-      <Route path="/:lang/logout">
-        <Logout />
-      </Route>
-      <Route path="/:lang/workfloweditor">
-        <WorkflowEditor />
-      </Route>
-      <Redirect to={`/${i18n.language}/home`} />
-    </>
-  );
-
   return (
     <ThemeProvider theme={theme(LIGHT_THEME)}>
       <CssBaseline />
@@ -136,11 +119,52 @@ function App() {
           onClickHandler={onClickHandler}
         >
           <Container maxWidth="lg">
-            <Switch>{routes}</Switch>
+            <Switch>
+              <Route path="/:lang/home">
+                <Home />
+              </Route>
+              <Route path="/:lang/auth">
+                <Authentication />
+              </Route>
+              <Route path="/:lang/logout">
+                <Logout />
+              </Route>
+              <Route path="/:lang/workfloweditor">
+                <WorkflowEditor />
+              </Route>
+              <Route path="/:lang/notFound">
+                <NotFound />
+              </Route>
+              <Route>
+                <Redirect to={`/${i18n.language}/notfound?theme=blue`} />
+              </Route>
+            </Switch>
           </Container>
         </Layout>
       </Router>
     </ThemeProvider>
+  );
+}
+
+function Status({code, children}) {
+  return (
+    <Route
+      render={({staticContext}) => {
+        if (staticContext) staticContext.status = code;
+        return children;
+      }}
+    />
+  );
+}
+
+function NotFound() {
+  const {t} = useTranslation();
+  return (
+    <Status code={404}>
+      <Typography variant="h6" color="textPrimary">
+        {t("router.page.not.found.text")}
+      </Typography>
+    </Status>
   );
 }
 

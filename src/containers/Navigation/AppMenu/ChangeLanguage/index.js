@@ -44,7 +44,6 @@ const ChangeLanguage = ({type}) => {
         3
       );
 
-      console.log(newPathName);
       history.replace(newPathName);
 
       i18n.changeLanguage(newLanguage);
