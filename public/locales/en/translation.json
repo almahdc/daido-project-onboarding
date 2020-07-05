@@ -1,4 +1,5 @@
 {
+  "router.page.not.found.text": "Sorry, can’t find that.",
   "menu.item.home.text": "Home",
   "menu.item.logout.text": "Logout",
   "menu.item.login.text": "Login",
@@ -10,7 +11,7 @@
 
   "landing.page.title.main.text" : "Collect data from a supply chain. <br /> Easy. Effective. <br /> Multi-language.",
   "home.admin.general.text" : "Admin logged in",
-  "landing.page.get.started.button" : "Try out our focus feature",
+  "landing.page.get.started.button" : "Try our production flow mapping",
 
   "landing.page.about.us.title.text" : "About us",
   "landing.page.about.us.content.text" : "We are Daido, a team of 5 students from Technical University of Munich trying to help companies in tracking of raw materials, mainly cobalt, through out the supply chain. ",
@@ -65,9 +66,14 @@
   "workflow.page.editor.details.type" : "TYPE:",
   "workflow.page.editor.details.name" : "NAME:",
   "workflow.page.editor.details.description" : "DESCRIPTION:",
+  "workflow.page.editor.details.amount" : "AMOUNT:",
+  "workflow.page.editor.details.supplier" : "SUPPLIER:",
+  "workflow.page.editor.details.duration" : "DURATION:",
   "workflow.page.editor.details.cancel" : "CANCEL",
-  "workflow.page.editor.details.edit" : "EDIT",
+  "workflow.page.editor.details.save" : "SAVE",
   "workflow.page.editor.toolbox.title": "TOOLBOX",
+  "workflow.page.editor.details.amount.kg.text" : "Kg",
+  "workflow.page.editor.details.duration.h.text": "h",
 
   "footer.copyright.text" : "© Copyright 2020 By Daido",
 

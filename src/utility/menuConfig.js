@@ -9,7 +9,7 @@ const menuItems = [
   {
     type: MenuItemTypes.TYPICAL,
     name: "menu.item.home.text",
-    path: {pathName: "/home"},
+    path: {pathName: "/home?theme=blue"},
     isPublic: true,
     isPrivate: true
   },

@@ -8,6 +8,9 @@ import {Auth} from "aws-amplify";
 // data
 import UserData from "../../../utility/userData";
 
+// style
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 // i18n
 import {useTranslation} from "react-i18next";
 
@@ -24,7 +27,10 @@ export default function Logout() {
 
   return (
     <div>
-      {UserData.getUser() ? null : <Redirect to={`/${i18n.language}/home`} />}
+      <CircularProgress disableShrink />
+      {UserData.getUser() ? null : (
+        <Redirect to={`/${i18n.language}/home?theme=blue`} />
+      )}
     </div>
   );
 }

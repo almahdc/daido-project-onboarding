@@ -19,7 +19,12 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-export default function SidebarGroup({groupName, items, handleDragItem}) {
+export default function SidebarGroup({
+  groupName,
+  groupType,
+  items,
+  handleDragItem
+}) {
   const classes = useStyles();
   return (
     <Paper className={classes.group} color="secondary">
@@ -31,7 +36,9 @@ export default function SidebarGroup({groupName, items, handleDragItem}) {
           <SidebarItem
             key={index}
             type={item.name}
-            onDragItem={e => handleDragItem(e, groupName)}
+            onDragItem={e =>
+              handleDragItem(e, {type: groupType, subtype: item.name})
+            }
           />
         );
       })}

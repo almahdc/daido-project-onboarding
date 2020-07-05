@@ -7,11 +7,12 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
   content: {
-    textAlign: "center"
+    textAlign: "center",
+    width: "15em"
   },
   circle: {
     background: isBackgroundTransparent =>
-      isBackgroundTransparent ? "" : "#9DB6DF",
+      isBackgroundTransparent ? "" : "#E3EFFF",
     borderRadius: "50px",
     width: "100px",
     height: "100px",

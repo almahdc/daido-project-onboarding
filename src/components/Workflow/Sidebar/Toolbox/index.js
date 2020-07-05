@@ -6,8 +6,15 @@ import Paper from "@material-ui/core/Paper";
 
 // components
 import SidebarGroup from "../SidebarGroup";
-import {Typography, Button, Grid} from "@material-ui/core";
-import { useTranslation } from "react-i18next";
+import {Typography} from "@material-ui/core";
+import {useTranslation} from "react-i18next";
+
+// utility
+import {
+  INPUT_ONLY,
+  OUTPUT_INPUT,
+  OUTPUT_ONLY
+} from "../../../../utility/flowchart/constants";
 
 const useStyles = makeStyles(() => ({
   sidebar: {
@@ -23,16 +30,14 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "transparent"
   },
   button: {
-    backgroundColor: "#99FFC9",
-    width: "100%"
+    backgroundColor: "#fff",
+    width: "100%",
+    border: "0px"
   }
 }));
 
-
 // TODO: REPLACE HARDCODED ITEMS
-const inputItems = [
-  {name: "Material node"}
-];
+const inputItems = [{name: "Material node"}];
 
 const inputOutputItems = [
   {name: "Machine Node"},
@@ -40,7 +45,7 @@ const inputOutputItems = [
 ];
 const outputItems = [{name: "Transportation node"}];
 
-export default function SidebarToolbox({handleDragItem, openDetails}) {
+export default function SidebarToolbox({onDragItem, openDetails}) {
   const classes = useStyles();
   const {t} = useTranslation();
 
@@ -50,31 +55,23 @@ export default function SidebarToolbox({handleDragItem, openDetails}) {
         {t("workflow.page.editor.toolbox.title")}
       </Typography>
       <SidebarGroup
+        groupType={INPUT_ONLY}
         groupName={t("workflow.page.editor.process.type.input")}
         items={inputItems}
-        handleDragItem={handleDragItem}
+        handleDragItem={onDragItem}
       />
       <SidebarGroup
+        groupType={OUTPUT_INPUT}
         groupName={t("workflow.page.editor.process.type.process")}
         items={inputOutputItems}
-        handleDragItem={handleDragItem}
+        handleDragItem={onDragItem}
       />
       <SidebarGroup
+        groupType={OUTPUT_ONLY}
         groupName={t("workflow.page.editor.process.type.output")}
         items={outputItems}
-        handleDragItem={handleDragItem}
+        handleDragItem={onDragItem}
       />
-
-      {/* TODO REMOVE SPACER AND BUTTON AFTER CANVAS IMPLEMENTATION */}
-      <Grid className={classes.blank} />
-      <Button
-        className={classes.button}
-        variant="outlined"
-        color="primary"
-        onClick={openDetails}
-      >
-        Open Details
-      </Button>
     </Paper>
   );
 }

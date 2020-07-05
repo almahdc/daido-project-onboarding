@@ -1,17 +1,23 @@
 import React from "react";
 
+// components
+import {Typography, Button, Grid, Input} from "@material-ui/core";
+
+// translate
+import {useTranslation} from "react-i18next";
+
 // style
 import {makeStyles} from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
-// components
-import {Typography, Button, Grid} from "@material-ui/core";
-import { useTranslation } from "react-i18next";
+// utility
+import {INPUT_ONLY, OUTPUT_ONLY} from "../../../../utility/flowchart/constants";
 
 const useStyles = makeStyles(() => ({
   sidebar: {
     padding: "1em",
-    backgroundColor: "#7FECAF",
+    backgroundColor: "#ececec",
     height: "75vh",
     display: "flex",
     flexDirection: "column"
@@ -27,11 +33,12 @@ const useStyles = makeStyles(() => ({
   value: {
     marginTop: "10px",
     paddingLeft: "10px",
-    backgroundColor: "#99FFC9",
+    backgroundColor: "#fff",
     borderRadius: "5px",
     padding: "5px",
     minHeight: "2em",
-    verticalAlign: "center"
+    verticalAlign: "center",
+    color: "#000"
   },
   blank: {
     flex: 1,
@@ -40,62 +47,218 @@ const useStyles = makeStyles(() => ({
   cancelButton: {
     backgroundColor: "#ffcccb",
     width: "100%",
-    '&:hover': {
-      backgroundColor: "#E6B3B2",
-    }
+    "&:hover": {
+      backgroundColor: "#E6B3B2"
+    },
+    border: "0px"
   },
   editButton: {
     backgroundColor: "#99FFC9",
     width: "100%",
+    border: "0px"
   }
 }));
 
-export default function SidebarDetails({openDialog, closeDetails, type, name, description}) {
+export default function SidebarDetails({
+  onSaveData,
+  onChangedData,
+  detailsData,
+  mode
+}) {
   const classes = useStyles();
+
   const {t} = useTranslation();
 
-  const getTitle = () => {
-    if(type === "input-only") {
-        return t("workflow.page.editor.process.type.input");
-    } else if (type === "input-output") {
-        return t("workflow.page.editor.process.type.process");
-    } else {
-        return t("workflow.page.editor.process.type.output");
-    }
-}
-
-  return (
-    <Paper className={classes.sidebar} color="secondary">
+  const sidebarDetailsOutput = (
+    <>
       <Typography className={classes.title} variant="h5" color="primary">
-        {t("workflow.page.editor.details.title")}
+        {t("workflow.page.editor.process.type.output")}
       </Typography>
       <Typography className={classes.label} variant="body2" color="primary">
         {t("workflow.page.editor.details.type")}
       </Typography>
-      <Typography className={classes.value} variant="body1" color="primary">
-        {getTitle()}
-      </Typography><Typography className={classes.label} variant="body2" color="primary">
+      <Input
+        className={classes.value}
+        value={detailsData.properties.subtype}
+        disabled={true}
+        disableUnderline={true}
+      />
+      <Typography className={classes.label} variant="body2" color="primary">
         {t("workflow.page.editor.details.name")}
       </Typography>
-      <Typography className={classes.value} variant="body1" color="primary">
-        {name}
+      <Input
+        className={classes.value}
+        value={detailsData.properties.name}
+        disableUnderline={true}
+        onChange={event =>
+          onChangedData({
+            ...detailsData,
+            properties: {...detailsData.properties, name: event.target.value}
+          })
+        }
+      />
+      <Typography className={classes.label} variant="body2" color="primary">
+        {t("workflow.page.editor.details.amount")}
+      </Typography>
+      <Input
+        className={classes.value}
+        value={detailsData.properties.amount}
+        disableUnderline={true}
+        onChange={event =>
+          onChangedData({
+            ...detailsData,
+            properties: {...detailsData.properties, amount: event.target.value}
+          })
+        }
+        endAdornment={
+          <InputAdornment position="end">
+            {t("workflow.page.editor.details.amount.kg.text")}
+          </InputAdornment>
+        }
+      />
+    </>
+  );
+
+  const sidebarDetailsInput = (
+    <>
+      <Typography className={classes.title} variant="h5" color="primary">
+        {t("workflow.page.editor.process.type.input")}
       </Typography>
       <Typography className={classes.label} variant="body2" color="primary">
-        {t("workflow.page.editor.details.description")}
+        {t("workflow.page.editor.details.type")}
       </Typography>
-      <Typography className={classes.value} variant="body1" color="primary" paragraph>
-        {description}
+      <Input
+        className={classes.value}
+        disabled={true}
+        disableUnderline={true}
+        value={detailsData.properties.subtype}
+      />
+      <Typography className={classes.label} variant="body2" color="primary">
+        {t("workflow.page.editor.details.name")}
       </Typography>
+      <Input
+        className={classes.value}
+        value={detailsData.properties.name}
+        disableUnderline={true}
+        onChange={event =>
+          onChangedData({
+            ...detailsData,
+            properties: {...detailsData.properties, name: event.target.value}
+          })
+        }
+      />
+      <Typography className={classes.label} variant="body2" color="primary">
+        {t("workflow.page.editor.details.amount")}
+      </Typography>
+      <Input
+        className={classes.value}
+        value={detailsData.properties.amount}
+        disableUnderline={true}
+        onChange={event =>
+          onChangedData({
+            ...detailsData,
+            properties: {...detailsData.properties, amount: event.target.value}
+          })
+        }
+        endAdornment={
+          <InputAdornment position="end">
+            {t("workflow.page.editor.details.amount.kg.text")}
+          </InputAdornment>
+        }
+      />
+      <Typography className={classes.label} variant="body2" color="primary">
+        {t("workflow.page.editor.details.supplier")}
+      </Typography>
+      <Input
+        className={classes.value}
+        value={detailsData.properties.supplier}
+        disableUnderline={true}
+        onChange={event =>
+          onChangedData({
+            ...detailsData,
+            properties: {
+              ...detailsData.properties,
+              supplier: event.target.value
+            }
+          })
+        }
+      />
+    </>
+  );
+
+  const sidebarDetailsOutputInput = (
+    <>
+      <Typography className={classes.title} variant="h5" color="primary">
+        {t("workflow.page.editor.process.type.input")}
+      </Typography>
+      <Typography className={classes.label} variant="body2" color="primary">
+        {t("workflow.page.editor.details.type")}
+      </Typography>
+      <Input
+        className={classes.value}
+        disabled={true}
+        disableUnderline={true}
+        value={detailsData.properties.subtype}
+      />
+      <Typography className={classes.label} variant="body2" color="primary">
+        {t("workflow.page.editor.details.name")}
+      </Typography>
+      <Input
+        className={classes.value}
+        value={detailsData.properties.name}
+        disableUnderline={true}
+        onChange={event =>
+          onChangedData({
+            ...detailsData,
+            properties: {...detailsData.properties, name: event.target.value}
+          })
+        }
+      />
+      <Typography className={classes.label} variant="body2" color="primary">
+        {t("workflow.page.editor.details.duration")}
+      </Typography>
+      <Input
+        className={classes.value}
+        value={detailsData.properties.duration}
+        disableUnderline={true}
+        onChange={event =>
+          onChangedData({
+            ...detailsData,
+            properties: {
+              ...detailsData.properties,
+              duration: event.target.value
+            }
+          })
+        }
+        endAdornment={
+          <InputAdornment position="end">
+            {t("workflow.page.editor.details.duration.h.text")}
+          </InputAdornment>
+        }
+      />
+    </>
+  );
+
+  const sidebarData =
+    detailsData.type === INPUT_ONLY
+      ? sidebarDetailsInput
+      : detailsData.type === OUTPUT_ONLY
+      ? sidebarDetailsOutput
+      : sidebarDetailsOutputInput;
+
+  return (
+    <Paper className={classes.sidebar} color="secondary">
+      {sidebarData}
       <Grid className={classes.blank} />
-      <Grid container spacing={1} className={classes.container}>
-        <Grid item md={6}>
-          <Button className={classes.cancelButton} variant="outlined" color="primary" onClick={closeDetails}>
-            {t("workflow.page.editor.details.cancel")}
-          </Button>
-        </Grid>
-        <Grid item md={6}>
-          <Button className={classes.editButton} variant="outlined" color="primary" onClick={openDialog}>
-            {t("workflow.page.editor.details.edit")}
+      <Grid container className={classes.container}>
+        <Grid item xs={12}>
+          <Button
+            className={classes.editButton}
+            variant="outlined"
+            color="primary"
+            onClick={e => onSaveData(e, detailsData)}
+          >
+            {t("workflow.page.editor.details.save")}
           </Button>
         </Grid>
       </Grid>
