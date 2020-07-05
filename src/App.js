@@ -120,6 +120,9 @@ function App() {
         >
           <Container maxWidth="lg">
             <Switch>
+              <Route exact path="/daido-project-onboarding">
+                <Redirect to={`/${i18n.language}/home?theme=blue`} />
+              </Route>
               <Route path="/:lang/home">
                 <Home />
               </Route>

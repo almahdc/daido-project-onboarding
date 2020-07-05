@@ -18,10 +18,10 @@ i18n
     detection: {
       order: ["path", "localStorage", "htmlTag"]
     },
-    keySeparator: false,
     backend: {
       loadPath: "/locales/{{lng}}/translation.json"
-    }
+    },
+    keySeparator: false
   });
 
 export default i18n;
