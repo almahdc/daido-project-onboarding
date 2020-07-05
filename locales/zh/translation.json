@@ -1,0 +1,64 @@
+{
+  "menu.item.home.text": "你好",
+  "menu.item.logout.text": "你好",
+  "menu.item.login.text": "你好",
+  "menu.item.language.text": "你好",
+  "menu.item.language.english.text": "你好",
+  "menu.item.language.mandarin.text": "你好",
+  "menu.item.change.language.zh.option": "你",
+  "menu.item.change.language.en.option": "EN",
+
+  "landing.page.title.main.text" : "你好 你好 你好 你好 你好 你好",
+  "home.admin.general.text" : "你好",
+  "landing.page.get.started.button" : "你好 你好 你好",
+
+  "landing.page.about.us.title.text" : "About us",
+  "landing.page.about.us.content.text" : "We are Daido, a team of 5 students from Technical University of Munich trying to help companies in tracking of raw materials, mainly cobalt, through out the supply chain. ",
+
+  "landing.page.how.it.works.title.text" : "How it works",
+  "landing.page.how.it.works.step.1.title.text" : "Step 1",
+  "landing.page.how.it.works.step.2.title.text" : "Step 2",
+  "landing.page.how.it.works.step.3.title.text" : "Step 3",
+  "landing.page.how.it.works.step.4.title.text" : "Step 4",
+  "landing.page.how.it.works.step.5.title.text" : "Step 5",
+  "landing.page.how.it.works.step.1.content.text" : "Set up the initial process",
+  "landing.page.how.it.works.step.2.content.text" : "Invite businesses to onboard",
+  "landing.page.how.it.works.step.3.content.text" : "Onboarding goes on without your constant overview",
+  "landing.page.how.it.works.step.4.content.text" : "Check-in with the onboardee",
+  "landing.page.how.it.works.step.5.content.text" : "Onboarding is done",
+
+  "landing.page.features.title.text" : "Features",
+  "landing.page.features.subtitle.text" : "Tracking your supply chain doesn’t have to be complicated ",
+  "landing.page.features.1.title.text" : "Helpful AI Chatbot",
+  "landing.page.features.2.title.text" : "Easily Customizable",
+  "landing.page.features.3.title.text" : "Quick Onboarding",
+  "landing.page.features.1.content.text" : "Onboardees have an AI chatbot to ask for questions and are guided through out the whole process",
+  "landing.page.features.2.content.text" : "Customize the process on the go",
+  "landing.page.features.3.content.text " : "Onboarding done in half of usual time",
+
+  "landing.page.team.leadership.title.text" : "Team Leadership",
+  "landing.page.team.leadership.player.1.name.text" : "Alex Schink",
+  "landing.page.team.leadership.player.2.name.text" : "Alma Hodzic",
+  "landing.page.team.leadership.player.3.name.text" : "Felipe Lara",
+  "landing.page.team.leadership.player.4.name.text" : "Louisa Wasmeier",
+  "landing.page.team.leadership.player.5.name.text" : "Tay Tantivirun",
+  "landing.page.team.leadership.player.6.name.text" : "Tang Tantivirun",
+  "landing.page.team.leadership.uni.tum.text" : "Student from TUM",
+  "landing.page.team.leadership.uni.scad.text" : "Student from SCAD",
+  "landing.page.team.leadership.skill.business.text" : "Business development",
+  "landing.page.team.leadership.skill.software.text" : "Software developer",
+  "landing.page.team.leadership.skill.ux.text" : "UX Designer",
+
+  "landing.page.our.partners.title.text" : "Our Partners",
+  "landing.page.our.partners.1.content.text" : "Advised by Douglas Johnson-Poensgen",
+  "landing.page.our.partners.2.content.text" : "Advised by Tilmann Vahle and Sören Buttkereit",
+  "landing.page.our.partners.3.content.text" : "Advised by Robert Metzger",
+
+  "auth.sing.in.username.placeholder" : "你好",
+  "auth.sing.in.password.placeholder" : "你好",
+  "auth.sing.in.button" : "你好",
+
+  "footer.copyright.text" : "© Copyright 2020 By Daido",
+
+  "auth.demo.credentials.onboarder.info.text" : "<strong>Onboarder credentials:</strong> almahdc+admin@gmail admin123 <br/> <strong>Onboardee credentials:</strong> almahdc+manuf@gmail manuf123"
+}
