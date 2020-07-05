@@ -123,9 +123,9 @@ export default class Canvas extends React.Component<any, any> {
       }
 
       // TODO: not a good practice, not good code
-      if(this.props.changedNodeData){
-        chart.nodes[this.props.changedNodeData.id].properties = this.props.changedNodeData.properties
-      }
+      // if(this.props.changedNodeData){
+      //   chart.nodes[this.props.changedNodeData.id].properties = this.props.changedNodeData.properties
+      // }
 
       return (
         <MyPaper>
