@@ -123,6 +123,9 @@ function App() {
               <Route path="/:lang/home">
                 <Home />
               </Route>
+              <Route path="/index.html">
+                <Redirect to={`/${i18n.language}/home?theme=blue`} />
+              </Route>
               <Route path="/:lang/auth">
                 <Authentication />
               </Route>
