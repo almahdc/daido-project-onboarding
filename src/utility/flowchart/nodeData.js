@@ -1,9 +1,8 @@
 import {OUTPUT_ONLY, OUTPUT_INPUT, INPUT_ONLY} from "./constants";
-import {v4} from "uuid";
 
 export const getNodeData = (nodeType, processPointType) => {
   const nodeData = {
-    id: v4(),
+    id: "",
     type: nodeType,
     ports: {
       port1: {},

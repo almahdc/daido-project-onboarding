@@ -14,6 +14,7 @@ import {TextField} from "@material-ui/core";
 import {getNodeData} from "../../../utility/flowchart/nodeData";
 import {useTranslation} from "react-i18next";
 import {REACT_FLOW_CHART} from "../../../utility/flowchart/constants";
+import {v4} from "uuid";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -56,6 +57,7 @@ const Editor = () => {
   const handleDragItem = (e, node) => {
     e.persist();
     const item = getNodeData(node.type, node.subtype);
+    item.id = v4();
     e.dataTransfer.setData(REACT_FLOW_CHART, JSON.stringify(item));
   };
 
