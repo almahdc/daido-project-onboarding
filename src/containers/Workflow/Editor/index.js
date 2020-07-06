@@ -56,8 +56,10 @@ const Editor = () => {
 
   const handleDragItem = (e, node) => {
     e.persist();
+    console.log("node", node);
     const item = getNodeData(node.type, node.subtype);
     item.id = v4();
+    item.properties.name = item.id;
     e.dataTransfer.setData(REACT_FLOW_CHART, JSON.stringify(item));
   };
 
