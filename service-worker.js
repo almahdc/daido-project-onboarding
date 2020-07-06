@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/daido-project-onboarding/precache-manifest.7081e69c91ff50dd1cf275e591207700.js"
+  "/daido-project-onboarding/precache-manifest.98ec34bfabbd83f8468563d1ea6152cb.js"
 );
 
 self.addEventListener('message', (event) => {
