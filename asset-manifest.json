@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/daido-project-onboarding/static/css/main.6e227e60.chunk.css",
-    "main.js": "/daido-project-onboarding/static/js/main.3890149b.chunk.js",
-    "main.js.map": "/daido-project-onboarding/static/js/main.3890149b.chunk.js.map",
+    "main.js": "/daido-project-onboarding/static/js/main.bad7ca2b.chunk.js",
+    "main.js.map": "/daido-project-onboarding/static/js/main.bad7ca2b.chunk.js.map",
     "runtime-main.js": "/daido-project-onboarding/static/js/runtime-main.00c3f254.js",
     "runtime-main.js.map": "/daido-project-onboarding/static/js/runtime-main.00c3f254.js.map",
-    "static/js/2.df1b258d.chunk.js": "/daido-project-onboarding/static/js/2.df1b258d.chunk.js",
-    "static/js/2.df1b258d.chunk.js.map": "/daido-project-onboarding/static/js/2.df1b258d.chunk.js.map",
+    "static/js/2.fb4e850a.chunk.js": "/daido-project-onboarding/static/js/2.fb4e850a.chunk.js",
+    "static/js/2.fb4e850a.chunk.js.map": "/daido-project-onboarding/static/js/2.fb4e850a.chunk.js.map",
     "index.html": "/daido-project-onboarding/index.html",
-    "precache-manifest.ae382813ee516fa1bffb1553f950d02e.js": "/daido-project-onboarding/precache-manifest.ae382813ee516fa1bffb1553f950d02e.js",
+    "precache-manifest.37610cffbc05f13b38cdb23e00d339c7.js": "/daido-project-onboarding/precache-manifest.37610cffbc05f13b38cdb23e00d339c7.js",
     "service-worker.js": "/daido-project-onboarding/service-worker.js",
     "static/css/main.6e227e60.chunk.css.map": "/daido-project-onboarding/static/css/main.6e227e60.chunk.css.map",
-    "static/js/2.df1b258d.chunk.js.LICENSE.txt": "/daido-project-onboarding/static/js/2.df1b258d.chunk.js.LICENSE.txt",
+    "static/js/2.fb4e850a.chunk.js.LICENSE.txt": "/daido-project-onboarding/static/js/2.fb4e850a.chunk.js.LICENSE.txt",
     "static/media/alex.png": "/daido-project-onboarding/static/media/alex.741c4b6d.png",
     "static/media/alma.png": "/daido-project-onboarding/static/media/alma.907179b3.png",
     "static/media/background.png": "/daido-project-onboarding/static/media/background.64558ee0.png",
@@ -30,8 +30,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.00c3f254.js",
-    "static/js/2.df1b258d.chunk.js",
+    "static/js/2.fb4e850a.chunk.js",
     "static/css/main.6e227e60.chunk.css",
-    "static/js/main.3890149b.chunk.js"
+    "static/js/main.bad7ca2b.chunk.js"
   ]
 }
