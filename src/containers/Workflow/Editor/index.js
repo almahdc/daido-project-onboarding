@@ -1,7 +1,7 @@
 import React from "react";
 
 // components
-import WorkflowCanvas from "../../../components/Workflow/Canvas/index.tsx";
+import WorkflowCanvas from "../../../components/Workflow/Canvas";
 import SidebarToolbox from "../../../components/Workflow/Sidebar/Toolbox";
 import SidebarDetails from "../../../components/Workflow/Sidebar/Details";
 
@@ -56,7 +56,6 @@ const Editor = () => {
 
   const handleDragItem = (e, node) => {
     e.persist();
-    console.log("node", node);
     const item = getNodeData(node.type, node.subtype);
     item.id = v4();
     item.properties.name = item.id;

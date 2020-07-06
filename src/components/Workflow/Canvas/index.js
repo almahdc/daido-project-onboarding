@@ -1,32 +1,17 @@
-import React, {useState} from "react";
 import {cloneDeep, mapValues} from "lodash";
-
-import {FlowChart} from "@mrblenny/react-flow-chart";
-import * as actions from "@mrblenny/react-flow-chart";
-
-import {chartSimple} from "../../../utility/flowchart/chart";
-
-// components
-
-// style
-import {makeStyles} from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-
+import * as React from "react";
 import styled from "styled-components";
-
-const useStyles = makeStyles(() => ({
-  canvas: {
-    maxHeight: "75vh",
-    overflow: "hidden",
-    padding: "0.5em"
-  }
-}));
-
-// TODO: hm styled components, move it to a new file and do it with material-ui
+import {
+  FlowChart,
+  INodeDefaultProps,
+  INodeInnerDefaultProps
+} from "@mrblenny/react-flow-chart";
+import * as actions from "../../../utility/flowchart/actions";
+import {chartSimple} from "../../../utility/flowchart/chart";
+import {OUTPUT_ONLY, INPUT_ONLY} from "../../../utility/flowchart/constants";
 
 const Rect = styled.div`
   position: absolute;
-  width: 200px;
   height: 110px;
   background: #989faa;
   color: white;
@@ -35,9 +20,22 @@ const Rect = styled.div`
 
 const Circle = styled.div`
   position: absolute;
-  width: 100px;
-  height: 100px;
-  padding: 20px;
+  width: 160px;
+  height: 160px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e2aaaa;
+  color: white;
+  border-radius: 50%;
+`;
+
+const CircleOutput = styled.div`
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  padding: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,54 +44,87 @@ const Circle = styled.div`
   border-radius: 50%;
 `;
 
+const MyPaper = styled.div`
+  max-height: 75vh;
+  overflow: hidden;
+  padding: 0.5em;
+`;
+
 const NodeCustom = React.forwardRef(({node, children, ...otherProps}, ref) => {
-  if (node.type === "input-output") {
+  return node.type === INPUT_ONLY ? (
+    <Circle ref={ref} {...otherProps}>
+      {children}
+    </Circle>
+  ) : node.type === OUTPUT_ONLY ? (
+    <CircleOutput ref={ref} {...otherProps}>
+      {children}
+    </CircleOutput>
+  ) : (
+    <Rect ref={ref} {...otherProps}>
+      {children}
+    </Rect>
+  );
+});
+
+const Outer = styled.div`
+  padding: 15px;
+`;
+
+const NodeInnerCustom = ({node, config}) => {
+  if (node.type === OUTPUT_ONLY) {
     return (
-      <Rect ref={ref} {...otherProps}>
-        {children}
-      </Rect>
+      <Outer>
+        <p>{node.properties.name}</p>
+        <p>{node.properties.amount}</p>
+      </Outer>
     );
-  } else if (node.type === "input-only") {
+  } else if (node.type === INPUT_ONLY) {
     return (
-      <Circle ref={ref} {...otherProps}>
-        {children}
-      </Circle>
+      <Outer>
+        <p>{node.properties.name}</p>
+        <p>{node.properties.amount}</p>
+        <p>{node.properties.supplier}</p>
+      </Outer>
     );
   } else {
     return (
-      <Circle ref={ref} {...otherProps}>
-        {children}
-      </Circle>
+      <Outer>
+        <p>{node.properties.name}</p>
+        <p>{node.properties.duration}</p>
+      </Outer>
     );
   }
-});
+};
 
-// TODO: Urgent - issue with duplicating the nodes
+export default class Canvas extends React.Component {
+  state = cloneDeep(chartSimple);
+  render() {
+    const chart = this.state;
+    const stateActions = mapValues(actions, func => (...args) =>
+      this.setState(func(...args))
+    );
+    if (chart.selected.type === "node") {
+      // TODO: not like this
+      this.props.nodeSelected(chart.selected, chart);
+    } else {
+      this.props.nodeNotSelected();
+    }
 
-export default function Canvas() {
-  const classes = useStyles();
+    // TODO: not a good practice, not good code
+    if (this.props.changedNodeData) {
+      chart.nodes[
+        this.props.changedNodeData.id
+      ].properties = this.props.changedNodeData.properties;
+    }
 
-  const [chart, setChart] = useState({
-    scale: 1,
-    offset: {
-      x: 0,
-      y: 0
-    },
-    nodes: {},
-    links: {},
-    selected: {},
-    hovered: {}
-  });
-
-  const stateActions = mapValues(actions, func => (...args) => func());
-
-  return (
-    <Paper className={classes.canvas} color="secondary">
-      <FlowChart
-        chart={chart}
-        callbacks={actions}
-        Components={{Node: NodeCustom}}
-      />
-    </Paper>
-  );
+    return (
+      <MyPaper>
+        <FlowChart
+          chart={chart}
+          callbacks={stateActions}
+          Components={{Node: NodeCustom, NodeInner: NodeInnerCustom}}
+        />
+      </MyPaper>
+    );
+  }
 }
