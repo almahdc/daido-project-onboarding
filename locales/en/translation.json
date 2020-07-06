@@ -6,7 +6,7 @@
   "menu.item.language.text": "Language",
   "menu.item.language.english.text": "English",
   "menu.item.language.mandarin.text": "Mandarin",
-  "menu.item.change.language.zh.option": "你",
+  "menu.item.change.language.zh.option": "普通话",
   "menu.item.change.language.en.option": "EN",
 
   "landing.page.title.main.text" : "Collect data from a supply chain. <br /> Easy. Effective. <br /> Multilingual.",
@@ -72,7 +72,7 @@
   "workflow.page.editor.details.cancel" : "CANCEL",
   "workflow.page.editor.details.save" : "SAVE",
   "workflow.page.editor.toolbox.title": "TOOLBOX",
-  "workflow.page.editor.details.amount.kg.text" : "Kg",
+  "workflow.page.editor.details.amount.kg.text" : "kg",
   "workflow.page.editor.details.duration.h.text": "h",
 
   "footer.copyright.text" : "© Copyright 2020 By Daido",
