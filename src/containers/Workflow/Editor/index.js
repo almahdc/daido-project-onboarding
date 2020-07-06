@@ -58,7 +58,6 @@ const Editor = () => {
     e.persist();
     const item = getNodeData(node.type, node.subtype);
     item.id = v4();
-    item.properties.name = item.id;
     e.dataTransfer.setData(REACT_FLOW_CHART, JSON.stringify(item));
   };
 

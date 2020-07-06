@@ -20,7 +20,7 @@ i18n
     },
     keySeparator: false,
     backend: {
-      loadPath: "/locales/{{lng}}/translation.json"
+      loadPath: "./locales/{{lng}}/translation.json"
     }
   });
 

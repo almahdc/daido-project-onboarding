@@ -1,5 +1,6 @@
 {
   "name": "daido-project-onboarding",
+  "homepage": "http://almahdc.github.io/daido-project-onboarding",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -30,7 +31,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint"
+    "lint": "eslint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
