@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "32969c6f7e5f003a4d70c16da5892986",
+    "revision": "559db6b086ba5b2854bc54a77852e9fa",
     "url": "/daido-project-onboarding/index.html"
   },
   {
-    "revision": "6574b996d711f5084576",
+    "revision": "aaa9655d9263e4a68342",
     "url": "/daido-project-onboarding/static/css/main.6e227e60.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/daido-project-onboarding/static/js/2.fb4e850a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6574b996d711f5084576",
-    "url": "/daido-project-onboarding/static/js/main.bad7ca2b.chunk.js"
+    "revision": "aaa9655d9263e4a68342",
+    "url": "/daido-project-onboarding/static/js/main.7faa57cf.chunk.js"
   },
   {
     "revision": "255dbb8106c0bbd4bbb1",
