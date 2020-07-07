@@ -1,7 +1,7 @@
 import React from "react";
 
 // components
-import WorkflowCanvas from "../../../components/Workflow/Canvas";
+import WorkflowCanvas from "../Canvas";
 import SidebarToolbox from "../../../components/Workflow/Sidebar/Toolbox";
 import SidebarDetails from "../../../components/Workflow/Sidebar/Details";
 
