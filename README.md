@@ -16,4 +16,4 @@ More details about the app are shown [here](https://app.mural.co/t/daido2784/m/d
 
 Issues that need to be done (not only on the web app) will be shown [here](https://github.com/almahdc/daido-project-onboarding/projects/1)! First you create an issue [here](https://github.com/almahdc/daido-project-onboarding/issues) and assign it to our project in order to be shown on the kanban board.
 
-Live link [here](https://master.d5bxwqht42psu.amplifyapp.com/)!
+Live link [here](https://almahdc.github.io/daido-project-onboarding)!
